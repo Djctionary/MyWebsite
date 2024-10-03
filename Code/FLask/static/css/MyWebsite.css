@@ -1,255 +1,36 @@
-/* 原UI */
 body {
-    font-family: Arial, sans-serif; 
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* 隐藏滚动条 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: rgb(64, 64, 64); /* 深灰色字体 */
-    z-index: 1;
-    position: relative;
+    background-color: #f4f4f4;
 }
 
-/* 背景样式：六个色块依次排列，均分屏幕宽度 */
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* 背景位于其他元素之下 */
-    display: flex;
-}
-
-.background div {
-    flex: 1;
-    height: 100%;
-}
-
-.background .block1 { background-color: rgb(23, 116, 209); }
-.background .block2 { background-color: rgb(211, 81, 47); }
-.background .block3 { background-color: rgb(217, 217, 217); }
-.background .block4 { background-color: rgb(23, 116, 209); }
-.background .block5 { background-color: rgb(211, 81, 47); }
-.background .block6 { background-color: rgb(217, 217, 217); }
-
-/* 头部文字居中，深灰色字 */
-.header {
-    padding: 0px;
-    width: 100%;
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
     text-align: center;
-    z-index: 1;
-    margin-top: -30px;
-    font-size: 32px;
-    color: rgb(64, 64, 64); /* 深灰色字体 */
 }
 
-/* 容器居中，圆角和阴影效果，浅灰色 */
-.container {
-    text-align: center;
-    background-color: rgb(217, 217, 217); /* 浅灰色背景 */
+main {
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(64, 64, 64, 0.1);
-    width: 800px;
-    height: 530px;
+    max-width: 800px;
     margin: 0 auto;
-    z-index: 0;
-}
-
-/* 卡片虚线边框，居中内容 */
-.card {
-    padding: 12px;
-    width: 780px;
-    height: 280px;
-    background-color: transparent;
-    border: 10px dashed rgb(25, 61, 103); /* 虚线边框颜色 */
-    border-radius: 10px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-/* 当按钮被点击时，卡片的边框变为RGB(152, 55, 32) */
-.card.clicked {
-    border-color: rgb(152, 55, 32); /* 点击时变为RGB(152, 55, 32) */
-}
-
-/* 卡片内的文字样式 */
-.card__text {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    color: rgb(64, 64, 64); /* 深灰色字体 */
-    font-size: 12px;
-}
-
-/* 画布样式：边框为灰色 */
-canvas {
-    display: block;
-    margin: 20px auto;
-    border: 1px solid rgb(127, 127, 127); /* 灰色边框 */
-    border-radius: 8px;
-    width: 300px;
-    height: 300px;
-}
-
-/* 箭头和线条的样式 */
-.line-arrow {
-    display: flex;
-    align-items: center;
-    gap: 0px;
-}
-
-.line {
-    width: 50px;
-    height: 20px;
-    background-color: rgb(64, 64, 64); /* 深灰色线条 */
-}
-
-.arrow {
-    width: 0;
-    height: 0;
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent;
-    border-left: 30px solid rgb(64, 64, 64); /* 深灰色箭头 */
-}
-
-input[type="file"] {
-    display: none; /* Hide the default file input */
-}
-
-/* 上传按钮：颜色为RGB(23, 116, 209)，点击后变为RGB(152, 55, 32) */
-.custom-file-upload {
-    display: inline-block;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 5px;
-    height: 50px;
-    width: 200px;
-    line-height: 47px;
-    text-align: center;
-    color: #fff;
-    background-color: rgb(23, 116, 209); /* 默认蓝色 */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-/* 鼠标悬停时，按钮颜色加深为RGB(25, 61, 103) */
-.custom-file-upload:hover {
-    background-color: rgb(25, 61, 103); /* 鼠标悬停时颜色 */
-}
-
-/* 按钮被点击后，颜色变为RGB(152, 55, 32) */
-.custom-file-upload.clicked {
-    background-color: rgb(152, 55, 32); /* 点击时颜色 */
-}
-
-/* 下载按钮样式：正常为RGB(23, 116, 209)，悬停和点击同上 */
-#download {
-    padding: 10px 20px;
-    background-color: rgb(23, 116, 209); /* 蓝色 */
-    color: #fff;
-    border: none;
+    background: #ffffff;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#download:hover {
-    background-color: rgb(25, 61, 103); /* 鼠标悬停时颜色 */
+section {
+    margin: 20px 0;
 }
 
-#download.clicked {
-    background-color: rgb(152, 55, 32); /* 点击时颜色 */
-}
-
-/* 转换按钮样式 */
-/* 蓝色按钮基本样式 */
-.convert-button {
-    display: inline-block;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    height: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 11px 14px;
-    border: none;
-    border-radius: 8px;
-    background-color: rgb(23, 116, 209); /* 默认蓝色 */
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-/* 启用状态样式 */
-.convert-button.enabled {
-    background-color: rgb(23, 116, 209);
-    color: white;
-}
-
-.convert-button.enabled:hover {
-    background-color: rgb(20, 100, 180); /* 稍深的蓝色 */
-    transform: scale(1.05);
-}
-
-.convert-button.enabled:active {
-    background-color: rgb(17, 84, 151); /* 更深的蓝色 */
-    transform: scale(0.95);
-}
-
-/* 禁用状态样式 */
-.convert-button.disabled {
-    background-color: rgb(150, 190, 230); /* 更浅的蓝色 */
-    color: rgb(200, 220, 240);
-    cursor: not-allowed;
-}
-
-/* 确保禁用状态下不会有悬停效果 */
-.convert-button.disabled:hover,
-.convert-button.disabled:active {
-    background-color: rgb(150, 190, 230);
-    color: rgb(200, 220, 240);
-    transform: none;
-}
-
-/* 焦点状态样式，提高可访问性 */
-.convert-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(23, 116, 209, 0.5);
-}
-
-/* 确保禁用状态下的焦点样式不那么突出 */
-.convert-button.disabled:focus {
-    box-shadow: 0 0 0 3px rgba(150, 190, 230, 0.5);
-}
-
-/* 图像画布的样式 */
-#imageCanvas {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.card__body
-{
-    width: 780px;
-    height: 280px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #35424a;
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }

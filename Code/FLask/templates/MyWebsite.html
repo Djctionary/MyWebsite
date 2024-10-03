@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChartPPT</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{ url_for('static', filename='js/chartPPT.js') }}"></script>
-    <link id="theme-style" rel="stylesheet" type="text/css" href="static/css/chartPPT-Natural.css">
+    <title>个人简历</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/MyWebsite.css') }}">
+    <script src="{{ url_for('static', filename='js/MyWebsite.js') }}" defer></script>
 </head>
 <body>
-    <div class="background">
-        <div class="twinkling"></div>
-    </div>
-    <div class="header">
-        <h1>Welcome to ChartPPT!</h1>
-    </div>
+    <header>
+        <h1>个人简历</h1>
+        <p>姓名：张三</p>
+        <p>职业：全栈开发者</p>
+    </header>
     <main>
-        <div class="container">
-            <h1>Upload, Process, and Download Image</h1>
-
-            <button class="convert-button disabled" id="convert-button">Convert Image</button>
-
-            <div class="card">
-                <div class="card__body">
-                    <label for="upload" class="custom-file-upload" id="select-label">
-                        Select Image
-                    </label>
-                    <input type="file" name="file" id="upload" accept="image/*">
-                    <canvas id="imageCanvas" style="display: none;"></canvas>
-                </div>
-            </div>
-
-            <img id="image" style="display: none;">
-
-        </div>
-
+        <section>
+            <h2>教育背景</h2>
+            <ul>
+                <li>2018 - 2022: 本科, 计算机科学, 北京大学</li>
+            </ul>
+        </section>
+        <section>
+            <h2>工作经历</h2>
+            <ul>
+                <li>2022 - 至今: 软件工程师, XYZ 公司</li>
+            </ul>
+        </section>
+        <section>
+            <h2>技能</h2>
+            <ul>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>JavaScript</li>
+                <li>HTML/CSS</li>
+            </ul>
+        </section>
     </main>
+    <footer>
+        <p>联系我: zhangsan@example.com</p>
+    </footer>
 </body>
 </html>
