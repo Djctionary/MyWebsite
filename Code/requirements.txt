@@ -1,0 +1,10 @@
+paddleocr
+Pillow
+python-pptx
+Flask
+psutil
+numpy
+Werkzeug
+psutil
+configparser
+openai

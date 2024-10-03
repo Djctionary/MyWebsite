@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartPPT</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ url_for('static', filename='js/chartPPT.js') }}"></script>
+    <link id="theme-style" rel="stylesheet" type="text/css" href="static/css/chartPPT-Natural.css">
+</head>
+<body>
+    <div class="background">
+        <div class="twinkling"></div>
+    </div>
+    <div class="header">
+        <h1>Welcome to ChartPPT!</h1>
+    </div>
+    <main>
+        <div class="container">
+            <h1>Upload, Process, and Download Image</h1>
+
+            <button class="convert-button disabled" id="convert-button">Convert Image</button>
+
+            <div class="card">
+                <div class="card__body">
+                    <label for="upload" class="custom-file-upload" id="select-label">
+                        Select Image
+                    </label>
+                    <input type="file" name="file" id="upload" accept="image/*">
+                    <canvas id="imageCanvas" style="display: none;"></canvas>
+                </div>
+            </div>
+
+            <img id="image" style="display: none;">
+
+        </div>
+
+    </main>
+</body>
+</html>
