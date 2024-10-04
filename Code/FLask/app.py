@@ -11,4 +11,4 @@ def home():
 if __name__ == '__main__':
     config = configparser.ConfigParser()
     config.read('Config_Path.ini')
-    app.run(host=config['flask']['server_ip'], debug=False, threaded=True)
+    app.run(host=config['flask']['localhost'], port=config['flask']['port'], debug=False, threaded=True)
