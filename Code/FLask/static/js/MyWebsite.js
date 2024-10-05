@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadSong(song) {
         audioPlayer.src = song.value;
         songTitle.textContent = song.text;
-        songArtist.textContent = song.getAttribute('data-artist'); // 获取艺术家信息
-        albumCover.src = `../static/images/${song.text}.jpg`; // 假设你有匹配的专辑封面
+        songArtist.textContent = song.getAttribute('data-artist');
+        albumCover.src = `../static/images/${song.text}.jpg`;
     }
 
     function playSong() {
@@ -106,12 +106,93 @@ document.addEventListener('DOMContentLoaded', function() {
     // playSong();  // 移除这个调用，确保在用户交互后播放
 
     // 滚动指示器
+    const scrollContainer = document.querySelector('.scroll-container');
     const scrollIndicator = document.querySelector('.scroll-indicator');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
+
+    // 改进的鼠标滚轮水平滚动
+    scrollContainer.addEventListener('wheel', function(e) {
+        e.preventDefault(); // 阻止默认的垂直滚动
+
+        // 根据滚轮事件的类型来决定滚动方向和距离
+        let delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+
+        // 使用 deltaX 如果可用，否则使用 deltaY
+        let scrollAmount = e.deltaX || e.deltaY;
+
+        // 如果 deltaX 和 deltaY 都是 0，使用之前计算的 delta
+        if (scrollAmount === 0) {
+            scrollAmount = delta * 40; // 40 是一个可以调整的值，用来控制滚动速度
+        }
+
+        // 调整 scrollLeft 来实现水平滚动
+        scrollContainer.scrollLeft -= scrollAmount*-10;
+
+    }, { passive: false }); // 添加 passive: false 来确保 preventDefault() 生效
+
+
+    // 处理滚动指示器
+    scrollContainer.addEventListener('scroll', function() {
+        if (scrollContainer.scrollLeft > 100) {
             scrollIndicator.style.opacity = '0';
         } else {
             scrollIndicator.style.opacity = '1';
         }
     });
+
+    // 启用触摸设备的水平滚动
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    scrollContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - scrollContainer.offsetLeft;
+        scrollLeft = scrollContainer.scrollLeft;
+    });
+
+    scrollContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    scrollContainer.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    scrollContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainer.offsetLeft;
+        const walk = (x - startX) * 2; // 调整滚动速度
+        scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const sections = document.querySelectorAll('.section');
+
+
+    // 选择导航链接和节
+    scrollContainer.addEventListener('scroll', () => {
+        let current = '';
+
+        // 找到当前滚动到的节
+        sections.forEach(section => {
+            const sectionLeft = section.offsetLeft; // 获取节的左边距离
+            const sectionWidth = section.clientWidth; // 获取节的宽度
+
+            // 判断当前节是否在可视区域内
+            if (scrollContainer.scrollLeft >= sectionLeft - sectionWidth / 3 &&
+                scrollContainer.scrollLeft < sectionLeft + sectionWidth) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        // 更新导航链接的活动类
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+
 });

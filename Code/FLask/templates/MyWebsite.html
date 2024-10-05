@@ -21,94 +21,95 @@
         </nav>
     </header>
 
-    <section id="cover" class="section">
-        <h1>Jiacheng Dong</h1>
-        <p>Web Developer & Designer</p>
-        <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Your Name" class="profile-image">
-        <div class="scroll-indicator">
-            <p>Scroll to explore</p>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <section id="skills" class="section">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <img src="{{ url_for('static', filename='images/html5.jpg') }}" alt="HTML5">
-                <p>HTML5</p>
+    <div class="scroll-container">
+        <section id="cover" class="section">
+            <h1>Jiacheng Dong</h1>
+            <p>Web Developer & Designer</p>
+            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Your Name" class="profile-image">
+            <div class="scroll-indicator">
+                <p>Scroll to explore</p>
+                <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="skill-item">
-                <img src="{{ url_for('static', filename='images/css3.jpg') }}" alt="CSS3">
-                <p>CSS3</p>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <img src="{{ url_for('static', filename='images/html5.jpg') }}" alt="HTML5">
+                    <p>HTML5</p>
+                </div>
+                <div class="skill-item">
+                    <img src="{{ url_for('static', filename='images/css3.jpg') }}" alt="CSS3">
+                    <p>CSS3</p>
+                </div>
+                <div class="skill-item">
+                    <img src="{{ url_for('static', filename='images/javascript.jpg') }}" alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+    <!--            <div class="skill-item">-->
+    <!--                <img src="{{ url_for('static', filename='images/react.jpg') }}" alt="React">-->
+    <!--                <p>React</p>-->
+    <!--            </div>-->
             </div>
-            <div class="skill-item">
-                <img src="{{ url_for('static', filename='images/javascript.jpg') }}" alt="JavaScript">
-                <p>JavaScript</p>
+        </section>
+
+        <section id="experience" class="section">
+            <h2>Work Experience</h2>
+            <div class="experience-item">
+                <h3>Human-Centered Affective Computing and Interaction Laboratory</h3>
+                <p class="date">2022.9.1 - 2024.6.1</p>
+                <ul>
+                    <li><strong>Multimodal Real-Time Emotion Analysis System</strong>
+                        <ul>
+                            <li>Collaborated in implementing a system integrating EEG, image, and audio data; filed a patent and worked on commercialization.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Traditional Chinese Medicine Information Website</strong>
+                        <ul>
+                            <li>Participated in the design and development of a management website for Traditional Chinese Medicine information.</li>
+                        </ul>
+                    </li>
+                    <li><strong>EEG-Based Emotion Analysis System</strong>
+                        <ul>
+                            <li>Contributed to developing a system for understanding emotional states based on EEG.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Psychological Counseling System</strong>
+                        <ul>
+                            <li>Involved in creating a system using face and voice modification algorithms to enhance therapeutic interactions.</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-<!--            <div class="skill-item">-->
-<!--                <img src="{{ url_for('static', filename='images/react.jpg') }}" alt="React">-->
-<!--                <p>React</p>-->
-<!--            </div>-->
-        </div>
-    </section>
-
-    <section id="experience" class="section">
-        <h2>Work Experience</h2>
-        <div class="experience-item">
-            <h3>Human-Centered Affective Computing and Interaction Laboratory</h3>
-            <p class="date">2022.9.1 - 2024.6.1</p>
-            <ul>
-                <li><strong>Multimodal Real-Time Emotion Analysis System</strong>
-                    <ul>
-                        <li>Collaborated in implementing a system integrating EEG, image, and audio data; filed a patent and worked on commercialization.</li>
-                    </ul>
-                </li>
-                <li><strong>Traditional Chinese Medicine Information Website</strong>
-                    <ul>
-                        <li>Participated in the design and development of a management website for Traditional Chinese Medicine information.</li>
-                    </ul>
-                </li>
-                <li><strong>EEG-Based Emotion Analysis System</strong>
-                    <ul>
-                        <li>Contributed to developing a system for understanding emotional states based on EEG.</li>
-                    </ul>
-                </li>
-                <li><strong>Psychological Counseling System</strong>
-                    <ul>
-                        <li>Involved in creating a system using face and voice modification algorithms to enhance therapeutic interactions.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </section>
+        </section>
 
 
 
-    <section id="education" class="section">
-        <h2>Education</h2>
+        <section id="education" class="section">
+            <h2>Education</h2>
 
-        <div class="education-item">
-            <h3>Bachelor of Software Engineering</h3>
-            <p class="date">University of Technology, Sydney, 2024.8.1 - 2024.9.2</p>
-            <p>Relevant Courses: Software Engineering, Reinforcement Learning</p>
-        </div>
+            <div class="education-item">
+                <h3>Bachelor of Software Engineering</h3>
+                <p class="date">University of Technology, Sydney, 2024.8.1 - 2024.9.2</p>
+                <p>Relevant Courses: Software Engineering, Reinforcement Learning</p>
+            </div>
 
-        <div class="education-item">
-            <h3>Bachelor of Computer Science and Technology</h3>
-            <p class="date">Northeastern University, China, 2022.9.1 - 2024.6.1</p>
-            <p>Relevant Courses: Deep Learning, Programming Languages, Front-End and Back-End Development, Web Development</p>
-        </div>
-    </section>
+            <div class="education-item">
+                <h3>Bachelor of Computer Science and Technology</h3>
+                <p class="date">Northeastern University, China, 2022.9.1 - 2024.6.1</p>
+                <p>Relevant Courses: Deep Learning, Programming Languages, Front-End and Back-End Development, Web Development</p>
+            </div>
+        </section>
 
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <div class="contact-item">
-            <p><strong>Phone Number:</strong> +61 468948977</p>
-            <p><strong>Email:</strong> <a href="mailto:djctionary@gmail.com">djctionary@gmail.com</a></p>
-        </div>
-    </section>
-
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <div class="contact-item">
+                <p><strong>Phone Number:</strong> +61 468948977</p>
+                <p><strong>Email:</strong> <a href="mailto:djctionary@gmail.com">djctionary@gmail.com</a></p>
+            </div>
+        </section>
+    </div>
 
     <div id="music-player" class="collapsed">
         <div class="music-player-toggle">
