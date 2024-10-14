@@ -16,7 +16,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#contact">contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -57,32 +57,21 @@
         <section id="experience" class="section">
             <h2>Work Experience</h2>
             <div class="experience-item">
-                <h3>Human-Centered Affective Computing and Interaction Laboratory</h3>
+                <h3>
+                    <a href="https://cz26.github.io/CZ-HP/lab/" target="_blank" class="lab-link">
+                        Human-Centered Affective Computing and Interaction Laboratory
+                    </a>
+                </h3>
                 <p class="date">2022.9.1 - 2024.6.1</p>
                 <ul>
-                    <li><strong>Multimodal Real-Time Emotion Analysis System</strong>
-                        <ul>
-                            <li>Collaborated in implementing a system integrating EEG, image, and audio data; filed a patent and worked on commercialization.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Traditional Chinese Medicine Information Website</strong>
-                        <ul>
-                            <li>Participated in the design and development of a management website for Traditional Chinese Medicine information.</li>
-                        </ul>
-                    </li>
-                    <li><strong>EEG-Based Emotion Analysis System</strong>
-                        <ul>
-                            <li>Contributed to developing a system for understanding emotional states based on EEG.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Psychological Counseling System</strong>
-                        <ul>
-                            <li>Involved in creating a system using face and voice modification algorithms to enhance therapeutic interactions.</li>
-                        </ul>
-                    </li>
+                    <li data-image="{{ url_for('static', filename='images/RES.jpg') }}"><strong>Multimodal Real-Time Emotion Analysis System</strong></li>
+                    <li data-image="/path/to/tcm-image.jpg"><strong>Traditional Chinese Medicine Information Website</strong></li>
+                    <li data-image="/path/to/eeg-image.jpg"><strong>EEG-Based Emotion Analysis System</strong></li>
+                    <li data-image="/path/to/counseling-image.jpg"><strong>Psychological Counseling System</strong></li>
                 </ul>
             </div>
         </section>
+        <div id="hover-image"></div>
 
 
 

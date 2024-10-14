@@ -166,6 +166,56 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollContainer.scrollLeft = scrollLeft - walk;
     });
 
+    // 添加触摸板双指滑动的水平滚动功能
+    scrollContainer.addEventListener('touchstart', handleTouchStart, false);
+    scrollContainer.addEventListener('touchmove', handleTouchMove, false);
+
+    let touchStartY = 0;
+    let touchStartX = 0;
+
+    function handleTouchStart(e) {
+        console.log("handleTouchStart")
+      if (e.touches.length === 2) {
+        touchStartY = e.touches[0].clientY;
+        touchStartX = e.touches[0].clientX;
+      }
+    }
+
+    function handleTouchMove(e) {
+      if (e.touches.length === 2) {
+        e.preventDefault(); // 阻止默认的滚动行为
+
+        const touchEndY = e.touches[0].clientY;
+        const touchEndX = e.touches[0].clientX;
+
+        const deltaY = touchStartY - touchEndY;
+        const deltaX = touchStartX - touchEndX;
+
+        // 如果垂直移动大于水平移动，我们认为这是一个垂直滑动手势
+        if (Math.abs(deltaY) > Math.abs(deltaX)) {
+          // 调整滚动速度，可以根据需要修改这个乘数
+          scrollContainer.scrollLeft += deltaY * 2;
+        }
+
+        // 更新起始位置
+        touchStartY = touchEndY;
+        touchStartX = touchEndX;
+      }
+    }
+
+    // 更新滚动指示器的逻辑
+    function updateScrollIndicator() {
+      if (scrollContainer.scrollLeft > 100) {
+        scrollIndicator.style.opacity = '0';
+      } else {
+        scrollIndicator.style.opacity = '1';
+      }
+    }
+
+    // 在触摸移动和滚动事件中调用更新函数
+    scrollContainer.addEventListener('scroll', updateScrollIndicator);
+    scrollContainer.addEventListener('touchmove', updateScrollIndicator);
+
     const navLinks = document.querySelectorAll('nav ul li a');
     const sections = document.querySelectorAll('.section');
 
@@ -194,5 +244,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    const items = document.querySelectorAll('.experience-item li');
+    const hoverImage = document.getElementById('hover-image');
+
+    items.forEach(item => {
+        item.addEventListener('mouseenter', function(e) {
+            const imageSrc = this.getAttribute('data-image');
+            hoverImage.innerHTML = `<img src="${imageSrc}" alt="Project Image">`;
+            hoverImage.style.opacity = '1';
+        });
+
+        item.addEventListener('mouseleave', function() {
+            hoverImage.style.opacity = '0';
+        });
+
+        item.addEventListener('mousemove', function(e) {
+            hoverImage.style.left = e.pageX + 20 + 'px';
+            hoverImage.style.top = e.pageY + 20 + 'px';
+        });
+    });
+
+    // 创建落下的白点
+    function createFallingDot() {
+        const dot = document.createElement('div');
+        dot.classList.add('falling-dot');
+        dot.style.left = `${Math.random() * 100}vw`;
+        dot.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        document.body.appendChild(dot);
+
+        dot.addEventListener('animationend', () => {
+            dot.remove();
+        });
+    }
+
+    function initializeFallingDots(count) {
+        for (let i = 0; i < count; i++) {
+            createFallingDot();
+        }
+    }
+
+    // 页面加载时创建白点
+    window.onload = function() {
+        initializeFallingDots(22); // 这里设置为初始创建的白点数量
+    };
+
 
 });
