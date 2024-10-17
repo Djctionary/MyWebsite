@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const items = document.querySelectorAll('.experience-item li');
+    const items = document.querySelectorAll('.project-item');
     const hoverImage = document.getElementById('hover-image');
 
     items.forEach(item => {
@@ -288,6 +288,35 @@ document.addEventListener('DOMContentLoaded', function() {
     window.onload = function() {
         initializeFallingDots(22); // 这里设置为初始创建的白点数量
     };
+
+    // 获取所有项目元素
+    const projectItems = document.querySelectorAll('.project-item');
+
+    // 为每个项目元素添加点击事件监听器
+    projectItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault(); // 阻止默认的链接跳转行为
+
+            // 获取点击项目的内容ID
+            const contentId = this.getAttribute('data-content');
+
+            // 隐藏所有项目
+            projectItems.forEach(item => {
+                item.classList.add('hide-item');
+            });
+
+            // 隐藏其他所有的新内容
+            const allNewContent = document.querySelectorAll('.new-content');
+            allNewContent.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            // 显示新内容
+            setTimeout(() => {
+                document.getElementById(contentId).style.display = 'block';
+            }, 1000); // 等待1秒，动画结束后显示
+        });
+    });
 
 
 });

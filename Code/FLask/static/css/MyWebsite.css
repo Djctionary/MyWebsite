@@ -141,7 +141,7 @@ nav ul li a:hover {
 }
 
 
-.experience-item, .education-item, .contact-item {
+.education-item, .contact-item {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -149,24 +149,40 @@ nav ul li a:hover {
     width: 100%;
 }
 
+.experience-item {
+    position: relative; /* 使用相对定位 */
+    top: -10%;            /* 距离页面顶部的距离，可以根据需要调整 */
+    left: -5%;           /* 距离页面左侧的距离，可以根据需要调整 */
+}
+
 .lab-link {
     text-decoration: none;
     color: inherit; /* 保持原来的文字颜色 */
     transition: color 0.3s ease; /* 添加平滑的过渡效果 */
+    font-size: 33px;
 }
 
 .lab-link:hover {
     color: #3498db; /* 鼠标悬停时变为蓝色，可根据需求调整 */
+    font-size: 33px;
 }
 
-.experience-item li {
-    cursor: pointer;
-    transition: all 0.3s ease;
+.project-item {
+    margin-top: 20px; /* 增大每个项目之间的间距 */
+    font-size: 25px;
+    line-height: 1.1;    /* 设置行间距 */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* 添加平滑过渡效果 */
 }
 
-.experience-item li:hover {
-    font-size: 1.2em;
-    font-weight: bold;
+.project-item:hover {
+    font-size: 25px;
+    transform: translateX(10%); /* 悬浮时放大并向右突进 */
+}
+
+.divider {
+    height: 2px;               /* 设置横线高度 */
+    background-color: white;   /* 设置横线颜色 */
+    margin-bottom: 10px;          /* 横线与内容之间的间距 */
 }
 
 #hover-image {
@@ -177,8 +193,8 @@ nav ul li a:hover {
 }
 
 #hover-image img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 400px;
+    max-height: 400px;
 }
 
 .date {
@@ -298,4 +314,49 @@ nav ul li a:hover {
     opacity: 0.8;
     border-radius: 50%; /* 圆形效果 */
     animation: fall linear infinite; /* 持续动画 */
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hide-item {
+    animation: slideOut 1s forwards;
+}
+
+.new-content {
+    animation: slideIn 1s forwards;
+}
+
+.project-item a {
+    color: #C0C0C0;
+    text-decoration: none; /* 去掉下划线 */
+}
+
+/* 悬停时的颜色 */
+.project-item a:hover {
+    color: #0056b3; /* 自定义悬停时的颜色 */
+}
+
+/* 点击时的颜色 */
+.project-item a:active {
+    color: #003366; /* 点击时的颜色 */
 }

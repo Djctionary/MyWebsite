@@ -12,11 +12,11 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#cover">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cover">HOME</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#experience">EXPERIENCE</a></li>
+                <li><a href="#education">EDUCATION</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
         </nav>
     </header>
@@ -33,7 +33,6 @@
         </section>
 
         <section id="skills" class="section">
-            <h2>Skills</h2>
             <div class="skills-grid">
                 <div class="skill-item">
                     <img src="{{ url_for('static', filename='images/html5.jpg') }}" alt="HTML5">
@@ -55,7 +54,6 @@
         </section>
 
         <section id="experience" class="section">
-            <h2>Work Experience</h2>
             <div class="experience-item">
                 <h3>
                     <a href="https://cz26.github.io/CZ-HP/lab/" target="_blank" class="lab-link">
@@ -63,15 +61,57 @@
                     </a>
                 </h3>
                 <p class="date">2022.9.1 - 2024.6.1</p>
-                <ul>
-                    <li data-image="{{ url_for('static', filename='images/RES.jpg') }}"><strong>Multimodal Real-Time Emotion Analysis System</strong></li>
-                    <li data-image="/path/to/tcm-image.jpg"><strong>Traditional Chinese Medicine Information Website</strong></li>
-                    <li data-image="/path/to/eeg-image.jpg"><strong>EEG-Based Emotion Analysis System</strong></li>
-                    <li data-image="/path/to/counseling-image.jpg"><strong>Psychological Counseling System</strong></li>
-                </ul>
+
+                <div class="project-item" data-image="{{ url_for('static', filename='images/RES.jpg') }}" data-content="new-content-1">
+                    <a href="#">
+                        <strong>Multimodal Real-Time Emotion Analysis System</strong>
+                    </a>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="project-item" data-image="{{ url_for('static', filename='images/TCMI.jpg') }}" data-content="new-content-2">
+                    <a href="#">
+                        <strong>Traditional Chinese Medicine Information Website</strong>
+                    </a>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="divider"></div>
+                <div class="project-item" data-image="{{ url_for('static', filename='images/EEG.jpg') }}" data-content="new-content-3">
+                    <a href="#">
+                        <strong>EEG-Based Emotion Analysis System</strong>
+                    </a>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="project-item" data-image="{{ url_for('static', filename='images/RES.jpg') }}" data-content="new-content-4">
+                    <a href="#">
+                        <strong>Psychological Counseling System</strong>
+                    </a>
+                    <div class="divider"></div>
+                </div>
+
             </div>
         </section>
         <div id="hover-image"></div>
+
+        <!-- 新内容容器，针对每个项目 -->
+        <div id="new-content-1" class="new-content" style="display:none;">
+            <img src="{{ url_for('static', filename='images/new_image_1.jpg') }}" alt="New Image 1">
+            <p>Details about Multimodal Real-Time Emotion Analysis System...</p>
+        </div>
+        <div id="new-content-2" class="new-content" style="display:none;">
+            <img src="{{ url_for('static', filename='images/new_image_2.jpg') }}" alt="New Image 2">
+            <p>Details about Traditional Chinese Medicine Information Website...</p>
+        </div>
+        <div id="new-content-3" class="new-content" style="display:none;">
+            <img src="{{ url_for('static', filename='images/new_image_3.jpg') }}" alt="New Image 3">
+            <p>Details about EEG-Based Emotion Analysis System...</p>
+        </div>
+        <div id="new-content-4" class="new-content" style="display:none;">
+            <img src="{{ url_for('static', filename='images/new_image_4.jpg') }}" alt="New Image 4">
+            <p>Details about Psychological Counseling System...</p>
+        </div>
 
 
 
