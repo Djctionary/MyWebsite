@@ -291,32 +291,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 获取所有项目元素
     const projectItems = document.querySelectorAll('.project-item');
-
+    const dividers = document.querySelectorAll('.divider');
     // 为每个项目元素添加点击事件监听器
     projectItems.forEach(item => {
         item.addEventListener('click', function(event) {
-            event.preventDefault(); // 阻止默认的链接跳转行为
+            event.preventDefault(); // Prevent default link behavior
 
-            // 获取点击项目的内容ID
+            // Get the content ID of the clicked item
             const contentId = this.getAttribute('data-content');
 
-            // 隐藏所有项目
+            // Hide all project items
             projectItems.forEach(item => {
                 item.classList.add('hide-item');
             });
 
-            // 隐藏其他所有的新内容
-            const allNewContent = document.querySelectorAll('.new-content');
-            allNewContent.forEach(content => {
-                content.style.display = 'none';
+            dividers.forEach(item => {
+                item.classList.add('hide-item');
             });
 
-            // 显示新内容
+            // Hide all dividers
+//            const allDividers = document.querySelectorAll('.divider');
+//            allDividers.forEach(divider => {
+//                divider.style.display = 'none';
+//            });
+
+            // Hide all other new content
+//            const allNewContent = document.querySelectorAll('.new-content');
+//            allNewContent.forEach(content => {
+//                content.style.display = 'none';
+//            });
+
+            // Display new content after 1 second delay
             setTimeout(() => {
                 document.getElementById(contentId).style.display = 'block';
-            }, 1000); // 等待1秒，动画结束后显示
+            }, 1000);
         });
     });
+
 
 
 });

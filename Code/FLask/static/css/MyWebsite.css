@@ -183,6 +183,7 @@ nav ul li a:hover {
     height: 2px;               /* 设置横线高度 */
     background-color: white;   /* 设置横线颜色 */
     margin-bottom: 10px;          /* 横线与内容之间的间距 */
+    animation: slideIn 1s forwards;
 }
 
 #hover-image {
