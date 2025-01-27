@@ -16,9 +16,9 @@
             <ul>
                 <li><a href="#cover">HOME</a></li>
                 <li><a href="#resume">RESUME</a></li>
-                <li><a href="#experience">EXPERIENCE</a></li>
-                <li><a href="#education">EDUCATION</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#reflections">REFLECTIONS</a></li>
+                <li><a href="#cover-letter">COVER-LETTER</a></li>
+                <li><a href="#cover-letter2">COVER-LETTER2</a></li>
             </ul>
         </nav>
     </header>
@@ -160,92 +160,352 @@
             </div>
         </section>
 
-        <section id="experience" class="section">
-            <div class="experience-item">
-                <h3>
-                    <a href="https://cz26.github.io/CZ-HP/lab/" target="_blank" class="lab-link">
-                        Human-Centered Affective Computing and Interaction Laboratory
-                    </a>
-                </h3>
-                <p class="date">2022.9.1 - 2024.6.1</p>
-
-                <div class="project-item" data-image="{{ url_for('static', filename='images/RES.jpg') }}" data-content="new-content-1">
-                    <a href="#">
-                        <strong>Multimodal Real-Time Emotion Analysis System</strong>
-                    </a>
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="project-item" data-image="{{ url_for('static', filename='images/TCMI.jpg') }}" data-content="new-content-2">
-                    <a href="#">
-                        <strong>Traditional Chinese Medicine Information Website</strong>
-                    </a>
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="project-item" data-image="{{ url_for('static', filename='images/EEG.jpg') }}" data-content="new-content-3">
-                    <a href="#">
-                        <strong>EEG-Based Emotion Analysis System</strong>
-                    </a>
-                </div>
-
-                <div class="divider"></div>
-<!--                <div class="project-item" data-image="{{ url_for('static', filename='images/RES.jpg') }}" data-content="new-content-4">-->
-<!--                    <a href="#">-->
-<!--                        <strong>Psychological Counseling System</strong>-->
+<!--        <section id="experience" class="section">-->
+<!--            <div class="experience-item">-->
+<!--                <h3>-->
+<!--                    <a href="https://cz26.github.io/CZ-HP/lab/" target="_blank" class="lab-link">-->
+<!--                        Human-Centered Affective Computing and Interaction Laboratory-->
 <!--                    </a>-->
-<!--                    <div class="divider"></div>-->
+<!--                </h3>-->
+<!--                <p class="date">2022.9.1 - 2024.6.1</p>-->
+
+<!--                <div class="project-item" data-image="{{ url_for('static', filename='images/RES.jpg') }}" data-content="new-content-1">-->
+<!--                    <a href="#">-->
+<!--                        <strong>Multimodal Real-Time Emotion Analysis System</strong>-->
+<!--                    </a>-->
 <!--                </div>-->
 
+<!--                <div class="divider"></div>-->
+
+<!--                <div class="project-item" data-image="{{ url_for('static', filename='images/TCMI.jpg') }}" data-content="new-content-2">-->
+<!--                    <a href="#">-->
+<!--                        <strong>Traditional Chinese Medicine Information Website</strong>-->
+<!--                    </a>-->
+<!--                </div>-->
+
+<!--                <div class="divider"></div>-->
+
+<!--                <div class="project-item" data-image="{{ url_for('static', filename='images/EEG.jpg') }}" data-content="new-content-3">-->
+<!--                    <a href="#">-->
+<!--                        <strong>EEG-Based Emotion Analysis System</strong>-->
+<!--                    </a>-->
+<!--                </div>-->
+
+<!--                <div class="divider"></div>-->
+<!--&lt;!&ndash;                <div class="project-item" data-image="{{ url_for('static', filename='images/RES.jpg') }}" data-content="new-content-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a href="#">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <strong>Psychological Counseling System</strong>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="divider"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--            </div>-->
+<!--        </section>-->
+<!--        <div id="hover-image"></div>-->
+
+<!--        &lt;!&ndash; 新内容容器，针对每个项目 &ndash;&gt;-->
+<!--        <div id="new-content-1" class="new-content" style="display:none;">-->
+<!--            <img src="{{ url_for('static', filename='images/new_image_1.jpg') }}" alt="New Image 1">-->
+<!--            <p>Details about Multimodal Real-Time Emotion Analysis System...</p>-->
+<!--        </div>-->
+<!--        <div id="new-content-2" class="new-content" style="display:none;">-->
+<!--            <img src="{{ url_for('static', filename='images/new_image_2.jpg') }}" alt="New Image 2">-->
+<!--            <p>Details about Traditional Chinese Medicine Information Website...</p>-->
+<!--        </div>-->
+<!--        <div id="new-content-3" class="new-content" style="display:none;">-->
+<!--            <img src="{{ url_for('static', filename='images/new_image_3.jpg') }}" alt="New Image 3">-->
+<!--            <p>Details about EEG-Based Emotion Analysis System...</p>-->
+<!--        </div>-->
+<!--        <div id="new-content-4" class="new-content" style="display:none;">-->
+<!--            <img src="{{ url_for('static', filename='images/new_image_4.jpg') }}" alt="New Image 4">-->
+<!--            <p>Details about Psychological Counseling System...</p>-->
+<!--        </div>-->
+
+        <section id="reflections" class="section">
+            <div class="content-wrapper">
+                <!-- Reflection 1 -->
+                <div class="reflection-column">
+                    <div class="reflection-item">
+                        <h2>Reflection 1: Multi-Modal System Development</h2>
+                        <h3>Applying Sustainability Principles to Create Viable Systems</h3>
+
+                        <p>In the <strong>Multi-Modal System Development</strong> project, I helped design a platform integrating <strong>EEG, image, and audio data</strong> for real-time emotion analysis. The project emphasized <strong>sustainability</strong> by focusing on <strong>system viability, user needs, and resource optimization</strong>.</p>
+
+                        <p>I learned the importance of <strong>balancing accuracy and efficiency</strong>. Integrating data streams enhanced robustness but increased <strong>computational complexity</strong>, requiring <strong>algorithm optimization</strong> and efficient pipeline design.</p>
+
+                        <p>Additionally, we prioritized <strong>ethical responsibility</strong>, ensuring <strong>data privacy and security</strong>, essential for sustainable system design.</p>
+
+                        <div class="references">
+                            <h4>References</h4>
+                            <ul>
+                                <li><strong>Engineers Australia.</strong> (2017). Implementing Sustainability: Principles and Practice Acknowledgements. <a href="https://www.engineersaustralia.org.au/sites/default/files/Learned%20Society/Resources-Guidelines%26Practice%20notes/Implementing%20Sustainability-Principles%20and%20Practice.pdf" target="_blank">https://www.engineersaustralia.org.au/sites/default/files/Learned%20Society/Resources-Guidelines%26Practice%20notes/Implementing%20Sustainability-Principles%20and%20Practice.pdf</a></li>
+                                <li><strong>Leng, J., Wang, D., Shen, W., Li, X., Liu, Q., & Chen, X.</strong> (2021). Digital twins-based smart manufacturing system design in Industry 4.0: A review. <em>Journal of Manufacturing Systems, 60</em>, 119–137. <a href="https://doi.org/10.1016/j.jmsy.2021.05.011" target="_blank">https://doi.org/10.1016/j.jmsy.2021.05.011</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Reflection 2 -->
+                <div class="reflection-column">
+                    <div class="reflection-item">
+                        <h2>Reflection 2: ChartPPT Development</h2>
+                        <h3>Professional Practice within Intercultural and Global Contexts</h3>
+
+                        <p>Working on the <strong>ChartPPT Development</strong> project involved creating a tool that dynamically generates <strong>presentation-ready charts</strong> integrated with PowerPoint using Python APIs. Key challenges included:</p>
+
+                        <ul>
+                            <li>Designing <strong>cross-platform compatible interfaces</strong></li>
+                            <li>Balancing <strong>complex functionality with user accessibility</strong></li>
+                            <li>Ensuring <strong>scalability for large datasets</strong></li>
+                        </ul>
+
+                        <p>This project emphasized <strong>cultural awareness</strong> through accommodating regional preferences for chart styles. It reinforced the value of <strong>modular coding practices</strong> and <strong>iterative user testing</strong> with diverse audiences.</p>
+
+                        <div class="references">
+                            <h4>References</h4>
+                            <ul>
+                                <li><strong>Engineers, A.</strong> (2022). Engineers Australia’s Diversity and Inclusion Positioning Statement. <a href="https://www.engineersaustralia.org.au/sites/default/files/2022-06/ea-diversity-and-inclusion-positioning-statement.pdf" target="_blank">https://www.engineersaustralia.org.au/sites/default/files/2022-06/ea-diversity-and-inclusion-positioning-statement.pdf</a></li>
+                                <li><strong>Nguyen, H. N., Lasa, G., Iriarte, I., Atxa, A., Unamuno, G., & Galfarsoro, G.</strong> (2022). Human-centered design for advanced services: A multidimensional design methodology. <em>Advanced Engineering Informatics, 53</em>, 101720. <a href="https://doi.org/10.1016/j.aei.2022.101720" target="_blank">https://doi.org/10.1016/j.aei.2022.101720</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <div id="hover-image"></div>
 
-        <!-- 新内容容器，针对每个项目 -->
-        <div id="new-content-1" class="new-content" style="display:none;">
-            <img src="{{ url_for('static', filename='images/new_image_1.jpg') }}" alt="New Image 1">
-            <p>Details about Multimodal Real-Time Emotion Analysis System...</p>
-        </div>
-        <div id="new-content-2" class="new-content" style="display:none;">
-            <img src="{{ url_for('static', filename='images/new_image_2.jpg') }}" alt="New Image 2">
-            <p>Details about Traditional Chinese Medicine Information Website...</p>
-        </div>
-        <div id="new-content-3" class="new-content" style="display:none;">
-            <img src="{{ url_for('static', filename='images/new_image_3.jpg') }}" alt="New Image 3">
-            <p>Details about EEG-Based Emotion Analysis System...</p>
-        </div>
-        <div id="new-content-4" class="new-content" style="display:none;">
-            <img src="{{ url_for('static', filename='images/new_image_4.jpg') }}" alt="New Image 4">
-            <p>Details about Psychological Counseling System...</p>
-        </div>
+        <section id="cover-letter" class="section">
+            <div class="content-wrapper">
+                <div class="letter-header">
+                    <h2>Application for Graduate Program</h2>
+                    <h3>Industrus Engineering</h3>
+                </div>
+                <div class="letter-body">
+                    <p>
+                        <strong>Dear Sir or Madam,</strong>
+                    </p>
+                    <p>
+                        I am writing to express my enthusiasm for the <strong>Graduate Program</strong> position at <strong>Industrus Engineering</strong>. As an engineering graduate with extensive experience in <strong>innovative projects</strong> and <strong>collaborative environments</strong>, I am eager to contribute my skills to your team and further develop as a professional in your esteemed company.
+                    </p>
+                </div>
+                <div class="selection-criteria">
+                    <div class="two-column-layout">
+                        <div class="column-left">
+                            <div class="criteria-item" data-criteria="3.1">
+                                <div class="criteria-header">
+                                    <div class="criteria-marker">
+                                        <span class="criteria-number">3.1</span>
+                                        <div class="criteria-icon">⚖️</div>
+                                    </div>
+                                    <h5>Commitment to Ethical Conduct and Professional Accountability</h5>
+                                </div>
+                                <div class="star-container">
+                                    <div class="star-group">
+                                        <span class="star-label">SITUATION</span>
+                                        <p>While participating in a collaborative project to develop an AI-based emotion analysis system at Northeastern University’s Human-Machine Interaction Lab.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">TASK</span>
+                                        <p>Ensured all data used complied with ethical standards and addressed privacy concerns with the team and stakeholders.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">ACTIONS</span>
+                                        <p>Actively reviewed data sources to confirm compliance with regulations and facilitated team discussions to align with ethical best practices.</p>
+                                    </div>
+                                    <div class="star-group highlight">
+                                        <span class="star-label">RESULT</span>
+                                        <p>The project received widespread praise for its integrity and technical excellence from partnering organizations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-
-
-        <section id="education" class="section">
-            <h2>Education</h2>
-
-            <div class="education-item">
-                <h3>Bachelor of Software Engineering</h3>
-                <p class="date">University of Technology, Sydney, 2024.8.1 - 2024.9.2</p>
-                <p>Relevant Courses: Software Engineering, Reinforcement Learning</p>
-            </div>
-
-            <div class="education-item">
-                <h3>Bachelor of Computer Science and Technology</h3>
-                <p class="date">Northeastern University, China, 2022.9.1 - 2024.6.1</p>
-                <p>Relevant Courses: Deep Learning, Programming Languages, Front-End and Back-End Development, Web Development</p>
+                        <div class="column-right">
+                            <div class="criteria-item" data-criteria="3.2">
+                                <div class="criteria-header">
+                                    <div class="criteria-marker">
+                                        <span class="criteria-number">3.2</span>
+                                        <div class="criteria-icon">📈</div>
+                                    </div>
+                                    <h5>Commitment to Continuous Improvement</h5>
+                                </div>
+                                <div class="star-container">
+                                    <div class="star-group">
+                                        <span class="star-label">SITUATION</span>
+                                        <p>During my tenure as a project assistant at ABC Corporation, I was tasked with improving operational efficiency.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">TASK</span>
+                                        <p>Identified inefficiencies in the supply chain and proposed solutions to reduce waste and processing times.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">ACTIONS</span>
+                                        <p>Implemented an automated tracking system and conducted workshops to train team members on its use.</p>
+                                    </div>
+                                    <div class="star-group highlight">
+                                        <span class="star-label">RESULT</span>
+                                        <p>Achieved a 25% reduction in processing time and significant cost savings within the first quarter of implementation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <div class="contact-item">
-                <p><strong>Phone Number:</strong> +61 468948977</p>
-                <p><strong>Email:</strong> <a href="mailto:djctionary@gmail.com">djctionary@gmail.com</a></p>
+        <section id="cover-letter2" class="section">
+            <div class="content-wrapper">
+
+                <div class="selection-criteria">
+                    <div class="two-column-layout">
+                        <div class="column-left">
+                            <div class="criteria-item" data-criteria="3.3">
+                                <div class="criteria-header">
+                                    <div class="criteria-marker">
+                                        <span class="criteria-number">3.3</span>
+                                        <div class="criteria-icon">🤖</div>
+                                    </div>
+                                    <h5>Engaging with a Creative, Innovative, and Proactive Environment</h5>
+                                </div>
+                                <div class="star-container">
+                                    <div class="star-group">
+                                        <span class="star-label">SITUATION</span>
+                                        <p>At the RoboMaster Lab in Northeastern University, I worked on developing and optimizing deep learning algorithms for robotics.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">TASK</span>
+                                        <p>I aimed to innovate solutions for enhancing the robots’ decision-making capabilities during competitions.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">ACTIONS</span>
+                                        <p>I implemented novel deep learning models and collaborated with teammates to test and refine robotic designs.</p>
+                                    </div>
+                                    <div class="star-group highlight">
+                                        <span class="star-label">RESULT</span>
+                                        <p>Our team achieved significant progress and successfully competed in a national robotics competition, showcasing our innovative approach.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column-right">
+                            <div class="criteria-item" data-criteria="3.4">
+                                <div class="criteria-header">
+                                    <div class="criteria-marker">
+                                        <span class="criteria-number">3.4</span>
+                                        <div class="criteria-icon">📊</div>
+                                    </div>
+                                    <h5>Ability to Use and Manage Information</h5>
+                                </div>
+                                <div class="star-container">
+                                    <div class="star-group">
+                                        <span class="star-label">SITUATION</span>
+                                        <p>At the Human-Machine Interaction Lab, I managed information for an AI-based Chinese medicine data collection system.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">TASK</span>
+                                        <p>I needed to streamline data collection and ensure its accuracy for the system’s front-end development.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">ACTIONS</span>
+                                        <p>I gathered, organized, and validated relevant data while ensuring the seamless integration of information into the system.</p>
+                                    </div>
+                                    <div class="star-group highlight">
+                                        <span class="star-label">RESULT</span>
+                                        <p>The system was completed efficiently and received positive feedback for its functionality and user-friendliness.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column-left">
+                            <div class="criteria-item" data-criteria="3.5">
+                                <div class="criteria-header">
+                                    <div class="criteria-marker">
+                                        <span class="criteria-number">3.5</span>
+                                        <div class="criteria-icon">📌</div>
+                                    </div>
+                                    <h5>Managing Personal Performance in a Professional Environment</h5>
+                                </div>
+                                <div class="star-container">
+                                    <div class="star-group">
+                                        <span class="star-label">SITUATION</span>
+                                        <p>While contributing to a startup project at UTS, I was tasked with full-stack development responsibilities.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">TASK</span>
+                                        <p>I had to balance multiple development tasks while meeting project deadlines independently.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">ACTIONS</span>
+                                        <p>I created a structured work plan, prioritized tasks effectively, and maintained consistent communication with the team.</p>
+                                    </div>
+                                    <div class="star-group highlight">
+                                        <span class="star-label">RESULT</span>
+                                        <p>The project was successfully delivered on time, demonstrating my ability to self-manage in a dynamic environment.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column-right">
+                            <div class="criteria-item" data-criteria="3.6">
+                                <div class="criteria-header">
+                                    <div class="criteria-marker">
+                                        <span class="criteria-number">3.6</span>
+                                        <div class="criteria-icon">🌟</div>
+                                    </div>
+                                    <h5>Teamwork and Leadership</h5>
+                                </div>
+                                <div class="star-container">
+                                    <div class="star-group">
+                                        <span class="star-label">SITUATION</span>
+                                        <p>During a course at UTS, I led a team to develop a website that converts images into editable PowerPoint slides.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">TASK</span>
+                                        <p>As a primary full-stack engineer, I also collaborated with the team leader to manage and motivate the group.</p>
+                                    </div>
+                                    <div class="star-group">
+                                        <span class="star-label">ACTIONS</span>
+                                        <p>I facilitated effective teamwork by delegating tasks based on individual strengths and actively supported team members in resolving challenges.</p>
+                                    </div>
+                                    <div class="star-group highlight">
+                                        <span class="star-label">RESULT</span>
+                                        <p>The project received high praise for its functionality and innovation, highlighting our successful collaboration and leadership.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+
+<!--        <section id="education" class="section">-->
+<!--            <h2>Education</h2>-->
+
+<!--            <div class="education-item">-->
+<!--                <h3>Bachelor of Software Engineering</h3>-->
+<!--                <p class="date">University of Technology, Sydney, 2024.8.1 - 2024.9.2</p>-->
+<!--                <p>Relevant Courses: Software Engineering, Reinforcement Learning</p>-->
+<!--            </div>-->
+
+<!--            <div class="education-item">-->
+<!--                <h3>Bachelor of Computer Science and Technology</h3>-->
+<!--                <p class="date">Northeastern University, China, 2022.9.1 - 2024.6.1</p>-->
+<!--                <p>Relevant Courses: Deep Learning, Programming Languages, Front-End and Back-End Development, Web Development</p>-->
+<!--            </div>-->
+<!--        </section>-->
+
+<!--        <section id="contact" class="section">-->
+<!--            <h2>Contact</h2>-->
+<!--            <div class="contact-item">-->
+<!--                <p><strong>Phone Number:</strong> +61 468948977</p>-->
+<!--                <p><strong>Email:</strong> <a href="mailto:djctionary@gmail.com">djctionary@gmail.com</a></p>-->
+<!--            </div>-->
+<!--        </section>-->
     </div>
 
     <div id="music-player" class="collapsed">

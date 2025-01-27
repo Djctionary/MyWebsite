@@ -105,37 +105,87 @@ document.addEventListener('DOMContentLoaded', function() {
     loadSong(playlist.options[0]);
     // playSong();  // 移除这个调用，确保在用户交互后播放
 
-    // 滚动指示器
     const scrollContainer = document.querySelector('.scroll-container');
-    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const sections = document.querySelectorAll('.section'); // 所有的 section
+    const navLinks = document.querySelectorAll('nav ul li a'); // 导航链接
 
-    // 改进的鼠标滚轮垂直滚动
+    let currentSectionIndex = 0; // 当前 section 的索引
+    let isScrolling = false; // 用于防止滚动事件频繁触发
+
+// 改进的鼠标滚轮垂直滚动
     scrollContainer.addEventListener('wheel', function (e) {
-        e.preventDefault(); // 阻止默认的水平滚动
+        if (isScrolling) return; // 防止连续触发
+        isScrolling = true; // 标记滚动状态
+        e.preventDefault(); // 阻止默认滚动行为
 
-        // 根据滚轮事件的类型来决定滚动方向和距离
-        let delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        // 根据滚轮方向切换 section
+        const direction = e.deltaY > 0 ? 1 : -1; // 判断滚轮向上或向下滚动
+        currentSectionIndex = Math.min(
+            Math.max(currentSectionIndex + direction, 0),
+            sections.length - 1
+        ); // 确保索引在有效范围内
 
-        // 使用 deltaY 如果可用
-        let scrollAmount = e.deltaY;
+        // 滚动到目标 section
+        sections[currentSectionIndex].scrollIntoView({ behavior: 'smooth' });
 
-        // 如果 deltaY 是 0，使用之前计算的 delta
-        if (scrollAmount === 0) {
-            scrollAmount = delta * 40; // 40 是一个可以调整的值，用来控制滚动速度
-        }
+        // 立即更新导航链接的活动类
+        updateActiveNavLink();
 
-        // 调整 scrollTop 来实现垂直滚动
-        scrollContainer.scrollTop -= scrollAmount * -10;
-    }, { passive: false }); // 添加 passive: false 来确保 preventDefault() 生效
-
-    // 处理滚动指示器
-    scrollContainer.addEventListener('scroll', function () {
-        if (scrollContainer.scrollTop > 100) {
-            scrollIndicator.style.opacity = '0';
-        } else {
-            scrollIndicator.style.opacity = '1';
-        }
+        // 设置滚动结束后允许下一次触发
+        setTimeout(() => {
+            isScrolling = false;
+        }, 500); // 调整以适应平滑滚动的时间
     });
+
+// 点击导航链接的逻辑
+    navLinks.forEach((link, index) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // 阻止默认跳转行为
+
+            if (isScrolling) return; // 防止在滚动动画期间多次触发
+            isScrolling = true;
+
+            // 更新当前 section 索引
+            currentSectionIndex = index;
+
+            // 滚动到目标 section
+            sections[currentSectionIndex].scrollIntoView({ behavior: 'smooth' });
+
+            // 立即更新导航链接的活动类
+            updateActiveNavLink();
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 500); // 调整以适应平滑滚动的时间
+        });
+    });
+
+// 滚动检测
+    scrollContainer.addEventListener('scroll', () => {
+        if (isScrolling) return; // 如果正在滚动，暂停活动类的自动更新
+
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop; // 获取节的顶部距离
+            const sectionHeight = section.clientHeight; // 获取节的高度
+
+            // 判断当前节是否在可视区域内
+            if (
+                scrollContainer.scrollTop >= sectionTop - sectionHeight / 3 &&
+                scrollContainer.scrollTop < sectionTop + sectionHeight
+            ) {
+                currentSectionIndex = index; // 更新当前节索引
+                updateActiveNavLink(); // 更新导航链接活动类
+            }
+        });
+    });
+
+// 更新导航链接活动类的函数
+    function updateActiveNavLink() {
+        navLinks.forEach(link => link.classList.remove('active'));
+        navLinks[currentSectionIndex].classList.add('active');
+    }
+
+
 
     // 启用触摸设备的垂直滚动
     let isDown = false;
@@ -192,47 +242,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 更新滚动指示器的逻辑
-    function updateScrollIndicator() {
-        if (scrollContainer.scrollTop > 100) {
-            scrollIndicator.style.opacity = '0';
-        } else {
-            scrollIndicator.style.opacity = '1';
-        }
-    }
-
-    // 在触摸移动和滚动事件中调用更新函数
-    scrollContainer.addEventListener('scroll', updateScrollIndicator);
-    scrollContainer.addEventListener('touchmove', updateScrollIndicator);
-
-
-    const navLinks = document.querySelectorAll('nav ul li a');
-    const sections = document.querySelectorAll('.section');
-
-    // 选择导航链接和节
-    scrollContainer.addEventListener('scroll', () => {
-        let current = '';
-
-        // 找到当前滚动到的节
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop; // 获取节的顶部距离
-            const sectionHeight = section.clientHeight; // 获取节的高度
-
-            // 判断当前节是否在可视区域内
-            if (scrollContainer.scrollTop >= sectionTop - sectionHeight / 3 &&
-                scrollContainer.scrollTop < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        // 更新导航链接的活动类
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
 
     // 悬停项目图像的逻辑
     const items = document.querySelectorAll('.project-item');
