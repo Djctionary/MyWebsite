@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jiacheng Dong - Personal Resume</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/MyWebsite.css') }}">
-    <script src="{{ url_for('static', filename='js/MyWebsite.js') }}" defer></script>
+    <link rel="stylesheet" href="css/MyWebsite.css">
+    <script src="js/MyWebsite.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
         <section id="cover" class="section">
             <h1>Jiacheng Dong</h1>
             <p>Web Developer & Designer</p>
-            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Your Name" class="profile-image">
+            <img src="images/profile.jpg" alt="Your Name" class="profile-image">
             <div class="scroll-indicator">
                 <p>Scroll to explore</p>
                 <i class="fas fa-chevron-down"></i>
@@ -35,21 +35,17 @@
         <section id="skills" class="section">
             <div class="skills-grid">
                 <div class="skill-item">
-                    <img src="{{ url_for('static', filename='images/html5.jpg') }}" alt="HTML5">
+                    <img src="images/html5.jpg" alt="HTML5">
                     <p>HTML5</p>
                 </div>
                 <div class="skill-item">
-                    <img src="{{ url_for('static', filename='images/css3.jpg') }}" alt="CSS3">
+                    <img src="images/css3.jpg" alt="CSS3">
                     <p>CSS3</p>
                 </div>
                 <div class="skill-item">
-                    <img src="{{ url_for('static', filename='images/javascript.jpg') }}" alt="JavaScript">
+                    <img src="images/javascript.jpg" alt="JavaScript">
                     <p>JavaScript</p>
                 </div>
-    <!--            <div class="skill-item">-->
-    <!--                <img src="{{ url_for('static', filename='images/react.jpg') }}" alt="React">-->
-    <!--                <p>React</p>-->
-    <!--            </div>-->
             </div>
         </section>
 
@@ -62,7 +58,7 @@
                 </h3>
                 <p class="date">2022.9.1 - 2024.6.1</p>
 
-                <div class="project-item" data-image="{{ url_for('static', filename='images/RES.jpg') }}" data-content="new-content-1">
+                <div class="project-item" data-image="images/RES.jpg" data-content="new-content-1">
                     <a href="#">
                         <strong>Multimodal Real-Time Emotion Analysis System</strong>
                     </a>
@@ -70,7 +66,7 @@
 
                 <div class="divider"></div>
 
-                <div class="project-item" data-image="{{ url_for('static', filename='images/TCMI.jpg') }}" data-content="new-content-2">
+                <div class="project-item" data-image="images/TCMI.jpg" data-content="new-content-2">
                     <a href="#">
                         <strong>Traditional Chinese Medicine Information Website</strong>
                     </a>
@@ -78,43 +74,31 @@
 
                 <div class="divider"></div>
 
-                <div class="project-item" data-image="{{ url_for('static', filename='images/EEG.jpg') }}" data-content="new-content-3">
+                <div class="project-item" data-image="images/EEG.jpg" data-content="new-content-3">
                     <a href="#">
                         <strong>EEG-Based Emotion Analysis System</strong>
                     </a>
                 </div>
 
                 <div class="divider"></div>
-<!--                <div class="project-item" data-image="{{ url_for('static', filename='images/RES.jpg') }}" data-content="new-content-4">-->
-<!--                    <a href="#">-->
-<!--                        <strong>Psychological Counseling System</strong>-->
-<!--                    </a>-->
-<!--                    <div class="divider"></div>-->
-<!--                </div>-->
 
             </div>
         </section>
         <div id="hover-image"></div>
 
-        <!-- 新内容容器，针对每个项目 -->
+        <!-- Project details content -->
         <div id="new-content-1" class="new-content" style="display:none;">
-            <img src="{{ url_for('static', filename='images/new_image_1.jpg') }}" alt="New Image 1">
+            <img src="images/RES.jpg" alt="RES Project">
             <p>Details about Multimodal Real-Time Emotion Analysis System...</p>
         </div>
         <div id="new-content-2" class="new-content" style="display:none;">
-            <img src="{{ url_for('static', filename='images/new_image_2.jpg') }}" alt="New Image 2">
+            <img src="images/TCMI.jpg" alt="TCMI Project">
             <p>Details about Traditional Chinese Medicine Information Website...</p>
         </div>
         <div id="new-content-3" class="new-content" style="display:none;">
-            <img src="{{ url_for('static', filename='images/new_image_3.jpg') }}" alt="New Image 3">
+            <img src="images/EEG.jpg" alt="EEG Project">
             <p>Details about EEG-Based Emotion Analysis System...</p>
         </div>
-        <div id="new-content-4" class="new-content" style="display:none;">
-            <img src="{{ url_for('static', filename='images/new_image_4.jpg') }}" alt="New Image 4">
-            <p>Details about Psychological Counseling System...</p>
-        </div>
-
-
 
         <section id="education" class="section">
             <h2>Education</h2>
@@ -147,7 +131,7 @@
         </div>
         <div class="music-player-content">
             <div class="music-info">
-                <img id="album-cover" src="{{ url_for('static', filename='images/cover1.jpg') }}" alt="Album cover">
+                <img id="album-cover" src="images/Bones.jpg" alt="Album cover">
                 <div>
                     <h3 id="song-title">Song Title</h3>
                     <p id="song-artist">Artist Name</p>
@@ -162,18 +146,17 @@
                 </div>
             </div>
             <select id="playlist">
-                <option value="../static/music/Bones.mp3" data-artist="Low Roar">Bones</option>
-                <option value="../static/music/Death Stranding.mp3" data-artist="こじま ひでお">Death Stranding</option>
-                <option value="../static/music/Wake Up, Get Up, Get Out There.mp3" data-artist="Lyn">Wake Up, Get Up, Get Out There</option>
-                <option value="../static/music/Don't Be So Serious.mp3" data-artist="Low Roar">Don't Be So Serious</option>
-                <option value="../static/music/MyGO.mp3" data-artist="长崎素世">MyGO</option>
+                <option value="music/Bones.mp3" data-artist="Low Roar">Bones</option>
+                <option value="music/Death Stranding.mp3" data-artist="こじま ひでお">Death Stranding</option>
+                <option value="music/Wake Up, Get Up, Get Out There.mp3" data-artist="Lyn">Wake Up, Get Up, Get Out There</option>
+                <option value="music/Don't Be So Serious.mp3" data-artist="Low Roar">Don't Be So Serious</option>
+                <option value="music/MyGO.mp3" data-artist="长崎素世">MyGO</option>
             </select>
             <canvas id="visualizer"></canvas>
         </div>
     </div>
 
     <audio id="audio-player"></audio>
-
 
 </body>
 </html>

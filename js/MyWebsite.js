@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.src = song.value;
         songTitle.textContent = song.text;
         songArtist.textContent = song.getAttribute('data-artist');
-        albumCover.src = `../static/images/${song.text}.jpg`;
+        albumCover.src = `images/${song.text}.jpg`;
     }
 
     function playSong() {
@@ -309,25 +309,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.classList.add('hide-item');
             });
 
-            // Hide all dividers
-//            const allDividers = document.querySelectorAll('.divider');
-//            allDividers.forEach(divider => {
-//                divider.style.display = 'none';
-//            });
-
-            // Hide all other new content
-//            const allNewContent = document.querySelectorAll('.new-content');
-//            allNewContent.forEach(content => {
-//                content.style.display = 'none';
-//            });
-
             // Display new content after 1 second delay
             setTimeout(() => {
                 document.getElementById(contentId).style.display = 'block';
             }, 1000);
         });
     });
-
-
 
 });
