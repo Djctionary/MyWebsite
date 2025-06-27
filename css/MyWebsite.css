@@ -1,3 +1,5 @@
+/* Enhanced with Tailwind CSS - Custom styles for specific effects */
+
 body {
     background-color: #000;
     background-image:
@@ -16,282 +18,33 @@ html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Prevent scrolling on the body */
+    overflow: hidden;
 }
 
+/* Page stacking container */
 .scroll-container {
-    display: flex;
-    flex-direction: row;
+    position: relative;
     width: 100vw;
     height: 100vh;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    overflow: hidden;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1rem;
-    z-index: 1000;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 1rem;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-nav ul li a.active {
-    color: #1b7ae1; /* 设置活动链接的颜色 */
-}
-
-nav ul li a:hover {
-    color: #0faaec;
-}
-
-
+/* Section positioning for stacked effect */
 .section {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    box-sizing: border-box;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow-y: auto;
 }
 
-#cover {
-    background: linear-gradient(to bottom, #1a1a1a, #4a4a4a);
-    color: white;
-    text-align: center;
-    position: relative;
+/* Active navigation link styling */
+nav ul li a.active {
+    color: #60a5fa !important; /* Tailwind blue-400 */
 }
 
-#cover h1 {
-    font-size: 2rem; /* 调整字体大小，可以根据需要修改 */
-    color: white; /* 设置字体颜色 */
-}
-
-#cover p {
-    font-size: 1.5rem; /* 调整字体大小 */
-    color: white; /* 设置字体颜色 */
-}
-
-.profile-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-top: 2rem;
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    animation: bounce 3s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.skill-item {
-    text-align: center;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.skill-item img {
-    width: 64px;
-    height: 64px;
-}
-
-
-.education-item, .contact-item {
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-}
-
-.experience-item {
-    position: relative; /* 使用相对定位 */
-    top: -10%;            /* 距离页面顶部的距离，可以根据需要调整 */
-    left: -5%;           /* 距离页面左侧的距离，可以根据需要调整 */
-}
-
-.lab-link {
-    text-decoration: none;
-    color: inherit; /* 保持原来的文字颜色 */
-    transition: color 0.3s ease; /* 添加平滑的过渡效果 */
-    font-size: 33px;
-}
-
-.lab-link:hover {
-    color: #3498db; /* 鼠标悬停时变为蓝色，可根据需求调整 */
-    font-size: 33px;
-}
-
-.project-item {
-    margin-top: 20px; /* 增大每个项目之间的间距 */
-    font-size: 25px;
-    line-height: 1.1;    /* 设置行间距 */
-    transition: transform 0.3s ease, font-size 0.3s ease; /* 添加平滑过渡效果 */
-}
-
-.project-item:hover {
-    font-size: 25px;
-    transform: translateX(10%); /* 悬浮时放大并向右突进 */
-}
-
-.divider {
-    height: 2px;               /* 设置横线高度 */
-    background-color: white;   /* 设置横线颜色 */
-    margin-bottom: 10px;          /* 横线与内容之间的间距 */
-    animation: slideIn 1s forwards;
-}
-
-#hover-image {
-    position: fixed;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-#hover-image img {
-    max-width: 400px;
-    max-height: 400px;
-}
-
-.date {
-    color: #666;
-    font-style: italic;
-}
-
-#music-player {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-#music-player.collapsed {
-    width: 50px;
-    height: 50px;
-}
-
-#music-player.expanded {
-    width: 300px;
-    height: auto;
-    padding: 1rem;
-}
-
-.music-player-toggle {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.music-player-content {
-    display: none;
-}
-
-#music-player.expanded .music-player-content {
-    display: block;
-}
-
-.music-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-#album-cover {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    margin-right: 1rem;
-}
-
-.music-controls {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.music-controls button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-right: 1rem;
-}
-
-.volume-control {
-    display: flex;
-    align-items: center;
-}
-
-#volume-slider {
-    width: 100px;
-    margin-left: 0.5rem;
-}
-
-#playlist {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 4px;
-}
-
-#visualizer {
-    width: 100%;
-    height: 50px;
-}
-
+/* Custom animations */
 @keyframes fall {
     0% {
         transform: translateY(-100vh);
@@ -308,13 +61,13 @@ nav ul li a:hover {
 
 .falling-dot {
     position: absolute;
-    top: -10px; /* 从屏幕顶部开始 */
-    width: 2px; /* 点的宽度 */
-    height: 10px; /* 点的高度 */
-    background-color: #CCE5FF; /* 点的颜色 */
+    top: -10px;
+    width: 2px;
+    height: 10px;
+    background-color: #CCE5FF;
     opacity: 0.8;
-    border-radius: 50%; /* 圆形效果 */
-    animation: fall linear infinite; /* 持续动画 */
+    border-radius: 50%;
+    animation: fall linear infinite;
 }
 
 @keyframes slideOut {
@@ -347,17 +100,66 @@ nav ul li a:hover {
     animation: slideIn 1s forwards;
 }
 
-.project-item a {
-    color: #C0C0C0;
-    text-decoration: none; /* 去掉下划线 */
+/* Hover image positioning */
+#hover-image {
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 30;
 }
 
-/* 悬停时的颜色 */
-.project-item a:hover {
-    color: #0056b3; /* 自定义悬停时的颜色 */
+#hover-image img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 8px;
 }
 
-/* 点击时的颜色 */
-.project-item a:active {
-    color: #003366; /* 点击时的颜色 */
+/* Custom range slider styling */
+#volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #60a5fa;
+    cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #60a5fa;
+    cursor: pointer;
+    border: none;
+}
+
+/* Enhanced project item interactions */
+@media (min-width: 768px) {
+    .project-item:hover {
+        transform: translateX(0.5rem);
+    }
+}
+
+/* Mobile-specific enhancements */
+@media (max-width: 767px) {
+    body {
+        background-size: 50px 50px, 50px 50px, 50px 50px;
+    }
+    
+    .falling-dot {
+        width: 1px;
+        height: 5px;
+    }
+    
+    #hover-image {
+        display: none; /* Hide hover images on mobile */
+    }
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 767px) {
+    .scroll-container {
+        padding-top: 80px; /* Account for fixed header */
+    }
 }

@@ -4,84 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jiacheng Dong - Personal Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/MyWebsite.css">
     <script src="js/MyWebsite.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#cover">HOME</a></li>
-                <li><a href="#skills">SKILLS</a></li>
-                <li><a href="#experience">EXPERIENCE</a></li>
-                <li><a href="#education">EDUCATION</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+    <header class="fixed top-0 left-0 right-0 bg-black bg-opacity-80 p-4 z-50">
+        <nav class="flex justify-between items-center">
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex justify-center space-x-8 w-full">
+                <li><a href="#cover" class="text-white font-bold text-xl hover:text-blue-400 transition-colors">HOME</a></li>
+                <li><a href="#skills" class="text-white font-bold text-xl hover:text-blue-400 transition-colors">SKILLS</a></li>
+                <li><a href="#experience" class="text-white font-bold text-xl hover:text-blue-400 transition-colors">EXPERIENCE</a></li>
+                <li><a href="#education" class="text-white font-bold text-xl hover:text-blue-400 transition-colors">EDUCATION</a></li>
+                <li><a href="#contact" class="text-white font-bold text-xl hover:text-blue-400 transition-colors">CONTACT</a></li>
             </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-black bg-opacity-95 transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out">
+                <ul class="flex flex-col space-y-4 p-6">
+                    <li><a href="#cover" class="text-white font-bold text-lg hover:text-blue-400 transition-colors block">HOME</a></li>
+                    <li><a href="#skills" class="text-white font-bold text-lg hover:text-blue-400 transition-colors block">SKILLS</a></li>
+                    <li><a href="#experience" class="text-white font-bold text-lg hover:text-blue-400 transition-colors block">EXPERIENCE</a></li>
+                    <li><a href="#education" class="text-white font-bold text-lg hover:text-blue-400 transition-colors block">EDUCATION</a></li>
+                    <li><a href="#contact" class="text-white font-bold text-lg hover:text-blue-400 transition-colors block">CONTACT</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
-    <div class="scroll-container">
-        <section id="cover" class="section">
-            <h1>Jiacheng Dong</h1>
-            <p>Web Developer & Designer</p>
-            <img src="images/profile.jpg" alt="Your Name" class="profile-image">
-            <div class="scroll-indicator">
-                <p>Scroll to explore</p>
-                <i class="fas fa-chevron-down"></i>
+    <div class="scroll-container flex md:flex-row flex-col md:overflow-x-scroll overflow-y-auto md:overflow-y-hidden w-full h-screen">
+        <section id="cover" class="section flex-shrink-0 w-full md:w-screen h-screen flex flex-col justify-center items-center text-center relative bg-gradient-to-b from-gray-800 to-gray-600">
+            <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-4">Jiacheng Dong</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-white mb-8">Web Developer & Designer</p>
+            <img src="images/profile.jpg" alt="Your Name" class="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover">
+            <div class="scroll-indicator absolute bottom-8 animate-bounce">
+                <p class="text-white mb-2">Scroll to explore</p>
+                <i class="fas fa-chevron-down text-white text-xl md:hidden"></i>
+                <i class="fas fa-chevron-right text-white text-xl hidden md:block"></i>
             </div>
         </section>
 
-        <section id="skills" class="section">
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="images/html5.jpg" alt="HTML5">
-                    <p>HTML5</p>
+        <section id="skills" class="section flex-shrink-0 w-full md:w-screen h-screen flex flex-col justify-center items-center p-4 md:p-8">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-4xl">
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-opacity-20 transition-all duration-300">
+                    <img src="images/html5.jpg" alt="HTML5" class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded">
+                    <p class="text-white font-semibold text-lg">HTML5</p>
                 </div>
-                <div class="skill-item">
-                    <img src="images/css3.jpg" alt="CSS3">
-                    <p>CSS3</p>
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-opacity-20 transition-all duration-300">
+                    <img src="images/css3.jpg" alt="CSS3" class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded">
+                    <p class="text-white font-semibold text-lg">CSS3</p>
                 </div>
-                <div class="skill-item">
-                    <img src="images/javascript.jpg" alt="JavaScript">
-                    <p>JavaScript</p>
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-opacity-20 transition-all duration-300">
+                    <img src="images/javascript.jpg" alt="JavaScript" class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded">
+                    <p class="text-white font-semibold text-lg">JavaScript</p>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="section">
-            <div class="experience-item">
-                <h3>
-                    <a href="https://cz26.github.io/CZ-HP/lab/" target="_blank" class="lab-link">
-                        Human-Centered Affective Computing and Interaction Laboratory
-                    </a>
-                </h3>
-                <p class="date">2022.9.1 - 2024.6.1</p>
+        <section id="experience" class="section flex-shrink-0 w-full md:w-screen h-screen flex flex-col justify-center items-center p-4 md:p-8">
+            <div class="w-full max-w-4xl">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center">Experience</h2>
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8">
+                    <h3 class="mb-4">
+                        <a href="https://cz26.github.io/CZ-HP/lab/" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors text-xl md:text-2xl lg:text-3xl font-semibold">
+                            Human-Centered Affective Computing and Interaction Laboratory
+                        </a>
+                    </h3>
+                    <p class="text-gray-300 italic mb-6 text-sm md:text-base">2022.9.1 - 2024.6.1</p>
 
-                <div class="project-item" data-image="images/RES.jpg" data-content="new-content-1">
-                    <a href="#">
-                        <strong>Multimodal Real-Time Emotion Analysis System</strong>
-                    </a>
+                    <div class="space-y-4">
+                        <div class="project-item bg-white bg-opacity-5 rounded-lg p-4 hover:bg-opacity-10 transition-all duration-300 cursor-pointer transform hover:translate-x-2" data-image="images/RES.jpg" data-content="new-content-1">
+                            <a href="#" class="text-gray-200 hover:text-blue-300 transition-colors">
+                                <strong class="text-lg md:text-xl">Multimodal Real-Time Emotion Analysis System</strong>
+                            </a>
+                        </div>
+
+                        <div class="divider h-0.5 bg-white bg-opacity-30 my-4"></div>
+
+                        <div class="project-item bg-white bg-opacity-5 rounded-lg p-4 hover:bg-opacity-10 transition-all duration-300 cursor-pointer transform hover:translate-x-2" data-image="images/TCMI.jpg" data-content="new-content-2">
+                            <a href="#" class="text-gray-200 hover:text-blue-300 transition-colors">
+                                <strong class="text-lg md:text-xl">Traditional Chinese Medicine Information Website</strong>
+                            </a>
+                        </div>
+
+                        <div class="divider h-0.5 bg-white bg-opacity-30 my-4"></div>
+
+                        <div class="project-item bg-white bg-opacity-5 rounded-lg p-4 hover:bg-opacity-10 transition-all duration-300 cursor-pointer transform hover:translate-x-2" data-image="images/EEG.jpg" data-content="new-content-3">
+                            <a href="#" class="text-gray-200 hover:text-blue-300 transition-colors">
+                                <strong class="text-lg md:text-xl">EEG-Based Emotion Analysis System</strong>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="divider"></div>
-
-                <div class="project-item" data-image="images/TCMI.jpg" data-content="new-content-2">
-                    <a href="#">
-                        <strong>Traditional Chinese Medicine Information Website</strong>
-                    </a>
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="project-item" data-image="images/EEG.jpg" data-content="new-content-3">
-                    <a href="#">
-                        <strong>EEG-Based Emotion Analysis System</strong>
-                    </a>
-                </div>
-
-                <div class="divider"></div>
-
             </div>
         </section>
         <div id="hover-image"></div>
@@ -100,59 +122,79 @@
             <p>Details about EEG-Based Emotion Analysis System...</p>
         </div>
 
-        <section id="education" class="section">
-            <h2>Education</h2>
+        <section id="education" class="section flex-shrink-0 w-full md:w-screen h-screen flex flex-col justify-center items-center p-4 md:p-8">
+            <div class="w-full max-w-4xl">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center">Education</h2>
+                <div class="space-y-6">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 hover:bg-opacity-15 transition-all duration-300">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Bachelor of Software Engineering</h3>
+                        <p class="text-blue-400 italic mb-3 text-sm md:text-base">University of Technology, Sydney, 2024.8.1 - 2024.9.2</p>
+                        <p class="text-gray-300 text-sm md:text-base">Relevant Courses: Software Engineering, Reinforcement Learning</p>
+                    </div>
 
-            <div class="education-item">
-                <h3>Bachelor of Software Engineering</h3>
-                <p class="date">University of Technology, Sydney, 2024.8.1 - 2024.9.2</p>
-                <p>Relevant Courses: Software Engineering, Reinforcement Learning</p>
-            </div>
-
-            <div class="education-item">
-                <h3>Bachelor of Computer Science and Technology</h3>
-                <p class="date">Northeastern University, China, 2022.9.1 - 2024.6.1</p>
-                <p>Relevant Courses: Deep Learning, Programming Languages, Front-End and Back-End Development, Web Development</p>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 hover:bg-opacity-15 transition-all duration-300">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Bachelor of Computer Science and Technology</h3>
+                        <p class="text-blue-400 italic mb-3 text-sm md:text-base">Northeastern University, China, 2022.9.1 - 2024.6.1</p>
+                        <p class="text-gray-300 text-sm md:text-base">Relevant Courses: Deep Learning, Programming Languages, Front-End and Back-End Development, Web Development</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <div class="contact-item">
-                <p><strong>Phone Number:</strong> +61 468948977</p>
-                <p><strong>Email:</strong> <a href="mailto:djctionary@gmail.com">djctionary@gmail.com</a></p>
+        <section id="contact" class="section flex-shrink-0 w-full md:w-screen h-screen flex flex-col justify-center items-center p-4 md:p-8">
+            <div class="w-full max-w-2xl text-center">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8">Contact</h2>
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 space-y-4">
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
+                        <i class="fas fa-phone text-blue-400 text-xl"></i>
+                        <p class="text-white text-lg md:text-xl"><strong>Phone:</strong> +61 468948977</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
+                        <i class="fas fa-envelope text-blue-400 text-xl"></i>
+                        <p class="text-white text-lg md:text-xl">
+                            <strong>Email:</strong> 
+                            <a href="mailto:djctionary@gmail.com" class="text-blue-400 hover:text-blue-300 transition-colors ml-2">djctionary@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 
-    <div id="music-player" class="collapsed">
-        <div class="music-player-toggle">
-            <i class="fas fa-music"></i>
+    <div id="music-player" class="collapsed fixed bottom-4 right-4 bg-black bg-opacity-80 backdrop-blur-sm rounded-lg z-40 transition-all duration-300">
+        <div class="music-player-toggle w-12 h-12 md:w-14 md:h-14 flex justify-center items-center cursor-pointer text-white hover:text-blue-400 transition-colors">
+            <i class="fas fa-music text-lg md:text-xl"></i>
         </div>
-        <div class="music-player-content">
-            <div class="music-info">
-                <img id="album-cover" src="images/Bones.jpg" alt="Album cover">
-                <div>
-                    <h3 id="song-title">Song Title</h3>
-                    <p id="song-artist">Artist Name</p>
+        <div class="music-player-content hidden">
+            <div class="p-4 w-64 md:w-80">
+                <div class="music-info flex items-center mb-4">
+                    <img id="album-cover" src="images/Bones.jpg" alt="Album cover" class="w-12 h-12 md:w-16 md:h-16 object-cover rounded mr-3">
+                    <div class="flex-1 min-w-0">
+                        <h3 id="song-title" class="text-white font-semibold text-sm md:text-base truncate">Song Title</h3>
+                        <p id="song-artist" class="text-gray-300 text-xs md:text-sm truncate">Artist Name</p>
+                    </div>
                 </div>
-            </div>
-            <div class="music-controls">
-                <button id="play-pause-btn"><i class="fas fa-play"></i></button>
-                <button id="next-btn"><i class="fas fa-forward"></i></button>
-                <div class="volume-control">
-                    <i class="fas fa-volume-up"></i>
-                    <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+                <div class="music-controls flex items-center justify-center space-x-4 mb-4">
+                    <button id="play-pause-btn" class="text-white hover:text-blue-400 transition-colors text-xl md:text-2xl">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button id="next-btn" class="text-white hover:text-blue-400 transition-colors text-lg md:text-xl">
+                        <i class="fas fa-forward"></i>
+                    </button>
+                    <div class="volume-control flex items-center space-x-2 flex-1">
+                        <i class="fas fa-volume-up text-white text-sm"></i>
+                        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1" class="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
                 </div>
+                <select id="playlist" class="w-full p-2 mb-3 bg-gray-800 text-white rounded border border-gray-600 text-sm">
+                    <option value="music/Bones.mp3" data-artist="Low Roar">Bones</option>
+                    <option value="music/Death Stranding.mp3" data-artist="こじま ひでお">Death Stranding</option>
+                    <option value="music/Wake Up, Get Up, Get Out There.mp3" data-artist="Lyn">Wake Up, Get Up, Get Out There</option>
+                    <option value="music/Don't Be So Serious.mp3" data-artist="Low Roar">Don't Be So Serious</option>
+                    <option value="music/MyGO.mp3" data-artist="长崎素世">MyGO</option>
+                </select>
+                <canvas id="visualizer" class="w-full h-12 bg-gray-900 rounded"></canvas>
             </div>
-            <select id="playlist">
-                <option value="music/Bones.mp3" data-artist="Low Roar">Bones</option>
-                <option value="music/Death Stranding.mp3" data-artist="こじま ひでお">Death Stranding</option>
-                <option value="music/Wake Up, Get Up, Get Out There.mp3" data-artist="Lyn">Wake Up, Get Up, Get Out There</option>
-                <option value="music/Don't Be So Serious.mp3" data-artist="Low Roar">Don't Be So Serious</option>
-                <option value="music/MyGO.mp3" data-artist="长崎素世">MyGO</option>
-            </select>
-            <canvas id="visualizer"></canvas>
         </div>
     </div>
 
