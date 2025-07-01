@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 目标页面初始设置为完全隐藏在左侧
             targetSection.style.transform = 'translateX(0%)';
-            targetSection.style.clipPath = 'inset(0 0 0 100%)';
+            targetSection.style.clipPath = 'inset(0 100% 0 0)';
             
             // 强制重绘
             targetSection.offsetHeight;
@@ -284,11 +284,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const delta = e.deltaY || e.deltaX;
         
         if (delta > 0) {
-            // 向下滚动 - 上一页
-            goToPage(currentPageIndex - 1, 'prev');
-        } else if (delta < 0) {
-            // 向上滚动 - 下一页（从左往右显示）
+            // 向下滚动 - 下一页
             goToPage(currentPageIndex + 1, 'next');
+        } else if (delta < 0) {
+            // 向上滚动 - 上一页（从左往右显示）
+            goToPage(currentPageIndex - 1, 'prev');
         }
     }, { passive: false });
 
@@ -411,30 +411,404 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeFallingDots(22); // 这里设置为初始创建的白点数量
     };
 
-    // 获取所有项目元素
+    // Experience section content switching logic
+    const experienceOriginal = document.getElementById('experience-original');
     const projectItems = document.querySelectorAll('.project-item');
-    const dividers = document.querySelectorAll('.divider');
-    // 为每个项目元素添加点击事件监听器
+    const newContents = document.querySelectorAll('.new-content');
+    const backBtns = document.querySelectorAll('.back-btn');
+    
+    let currentExperienceState = 'original'; // Track current state
+    
+    // Function to fade out current content and fade in new content
+    function switchExperienceContent(targetContentId) {
+        if (currentExperienceState === targetContentId) return;
+        
+        // Get current and target elements
+        const currentContent = currentExperienceState === 'original' ? 
+            experienceOriginal : document.getElementById(currentExperienceState);
+        const targetContent = document.getElementById(targetContentId);
+        
+        // Fade out current content
+        currentContent.style.transition = 'opacity 0.3s ease-in-out';
+        currentContent.style.opacity = '0';
+        
+        setTimeout(() => {
+            // Hide current content and show target content
+            currentContent.style.display = 'none';
+            targetContent.style.display = 'block';
+            targetContent.style.opacity = '0';
+            
+            // Force reflow
+            targetContent.offsetHeight;
+            
+            // Fade in target content
+            targetContent.style.transition = 'opacity 0.3s ease-in-out';
+            targetContent.style.opacity = '1';
+            
+            // Update current state
+            currentExperienceState = targetContentId;
+        }, 300);
+    }
+    
+    // Function to return to original experience content
+    function returnToOriginal() {
+        if (currentExperienceState === 'original') return;
+        
+        const currentContent = document.getElementById(currentExperienceState);
+        
+        // Fade out current content
+        currentContent.style.transition = 'opacity 0.3s ease-in-out';
+        currentContent.style.opacity = '0';
+        
+        setTimeout(() => {
+            // Hide current content and show original
+            currentContent.style.display = 'none';
+            experienceOriginal.style.display = 'block';
+            experienceOriginal.style.opacity = '0';
+            
+            // Force reflow
+            experienceOriginal.offsetHeight;
+            
+            // Fade in original content
+            experienceOriginal.style.transition = 'opacity 0.3s ease-in-out';
+            experienceOriginal.style.opacity = '1';
+            
+            // Update current state
+            currentExperienceState = 'original';
+        }, 300);
+    }
+    
+    // Add click event listeners to project items
     projectItems.forEach(item => {
         item.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default link behavior
-
-            // Get the content ID of the clicked item
+            event.preventDefault();
             const contentId = this.getAttribute('data-content');
+            switchExperienceContent(contentId);
+        });
+    });
+    
+    // Add click event listeners to back buttons
+    backBtns.forEach(btn => {
+        btn.addEventListener('click', function(event) {
+            event.preventDefault();
+            returnToOriginal();
+        });
+    });
 
-            // Hide all project items
-            projectItems.forEach(item => {
-                item.classList.add('hide-item');
+    // Section Background Animations
+
+    // 1. Cover Section - Particles.js Star Field
+    function initParticles() {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 2,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    }
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+
+    // 2. Skills Section - Matrix Code Animation
+    function initMatrixBackground() {
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        const matrixArray = matrix.split("");
+        
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px arial';
+            
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 35);
+    }
+
+    // 3. Experience Section - Neural Network Animation
+    function initNeuralNetwork() {
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const nodes = [];
+        const nodeCount = 50;
+        const connectionDistance = 120;
+        
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 3 + 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if(this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if(this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#60a5fa';
+                ctx.fill();
+            }
+        }
+        
+        for(let i = 0; i < nodeCount; i++) {
+            nodes.push(new Node());
+        }
+        
+        function drawNeuralNetwork() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw connections
+            for(let i = 0; i < nodes.length; i++) {
+                for(let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if(distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = `rgba(96, 165, 250, ${1 - distance / connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            // Draw and update nodes
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
             });
+            
+            requestAnimationFrame(drawNeuralNetwork);
+        }
+        
+        drawNeuralNetwork();
+    }
 
-            dividers.forEach(item => {
-                item.classList.add('hide-item');
-            });
-
-            // Display new content after 1 second delay
+    // 4. Education Section - Floating Geometric Shapes
+    function initGeometricBackground() {
+        const container = document.getElementById('geometric-bg');
+        const shapes = ['triangle', 'square', 'circle', 'hexagon'];
+        const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+        
+        function createShape() {
+            const shape = document.createElement('div');
+            const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const size = Math.random() * 60 + 20;
+            
+            shape.className = `floating-shape ${shapeType}`;
+            shape.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background: ${color};
+                opacity: 0.1;
+                animation: float-${Math.floor(Math.random() * 3) + 1} ${Math.random() * 10 + 15}s linear infinite;
+                left: ${Math.random() * 100}%;
+                top: 100%;
+                border-radius: ${shapeType === 'circle' ? '50%' : shapeType === 'triangle' ? '0' : '10%'};
+                transform: ${shapeType === 'triangle' ? 'rotate(45deg)' : 'rotate(0deg)'};
+            `;
+            
+            container.appendChild(shape);
+            
             setTimeout(() => {
-                document.getElementById(contentId).style.display = 'block';
-            }, 1000);
+                if(shape.parentNode) {
+                    shape.parentNode.removeChild(shape);
+                }
+            }, 20000);
+        }
+        
+        setInterval(createShape, 2000);
+    }
+
+    // 5. Contact Section - Wave Animation
+    function initWaveBackground() {
+        const canvas = document.getElementById('wave-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let time = 0;
+        
+        function drawWaves() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw multiple wave layers
+            for(let i = 0; i < 3; i++) {
+                ctx.beginPath();
+                ctx.moveTo(0, canvas.height / 2);
+                
+                for(let x = 0; x <= canvas.width; x += 10) {
+                    const y = canvas.height / 2 + 
+                             Math.sin((x * 0.01) + (time * 0.02) + (i * 0.5)) * (30 + i * 20) +
+                             Math.sin((x * 0.005) + (time * 0.01) + (i * 1.2)) * (20 + i * 10);
+                    ctx.lineTo(x, y);
+                }
+                
+                ctx.lineTo(canvas.width, canvas.height);
+                ctx.lineTo(0, canvas.height);
+                ctx.closePath();
+                
+                const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+                gradient.addColorStop(0, `rgba(102, 126, 234, ${0.1 - i * 0.03})`);
+                gradient.addColorStop(1, `rgba(118, 75, 162, ${0.2 - i * 0.05})`);
+                
+                ctx.fillStyle = gradient;
+                ctx.fill();
+            }
+            
+            time++;
+            requestAnimationFrame(drawWaves);
+        }
+        
+        drawWaves();
+    }
+
+    // Initialize all backgrounds
+    initParticles();
+    initMatrixBackground();
+    initNeuralNetwork();
+    initGeometricBackground();
+    initWaveBackground();
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        const canvases = ['matrix-canvas', 'neural-canvas', 'wave-canvas'];
+        canvases.forEach(id => {
+            const canvas = document.getElementById(id);
+            if(canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
         });
     });
 

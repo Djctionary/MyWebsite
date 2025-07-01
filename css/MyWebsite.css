@@ -2,11 +2,6 @@
 
 body {
     background-color: #000;
-    background-image:
-        linear-gradient(rgba(50, 50, 50, 0.5) 1px, transparent 1px), /* 垂直线 */
-        linear-gradient(90deg, rgba(50, 50, 50, 0.5) 1px, transparent 1px), /* 水平线 */
-        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 1px, transparent 100px); /* 45度对角线 */
-    background-size: 100px 100px, 100px 100px, 100px 100px;
     color: #fff;
     font-family: Arial, sans-serif;
     overflow: hidden;
@@ -37,6 +32,58 @@ html {
     width: 100vw !important;
     height: 100vh !important;
     overflow-y: auto;
+}
+
+/* Section-specific backgrounds */
+#cover {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 100%);
+}
+
+#skills {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a4d1a 100%);
+}
+
+#experience {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+#education {
+    background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
+}
+
+#contact {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Particles.js container */
+#particles-js {
+    background: transparent;
+}
+
+/* Matrix canvas styling */
+#matrix-canvas {
+    background: transparent;
+}
+
+/* Neural network canvas styling */
+#neural-canvas {
+    background: transparent;
+}
+
+/* Geometric background styling */
+#geometric-bg {
+    background: transparent;
+}
+
+/* Wave canvas styling */
+#wave-canvas {
+    background: transparent;
+}
+
+/* Enhanced backdrop blur for content containers */
+.bg-white.bg-opacity-10 {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Active navigation link styling */
@@ -70,35 +117,7 @@ nav ul li a.active {
     animation: fall linear infinite;
 }
 
-@keyframes slideOut {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-}
-
-@keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.hide-item {
-    animation: slideOut 1s forwards;
-}
-
-.new-content {
-    animation: slideIn 1s forwards;
-}
+/* Removed old slide animations - replaced with new experience content switching */
 
 /* Hover image positioning */
 #hover-image {
@@ -141,12 +160,65 @@ nav ul li a.active {
     }
 }
 
-/* Mobile-specific enhancements */
+/* Experience content switching styles */
+.experience-content {
+    transition: opacity 0.3s ease-in-out;
+    width: 100%;
+}
+
+.experience-content.fade-out {
+    opacity: 0;
+}
+
+.experience-content.fade-in {
+    opacity: 1;
+}
+
+/* Back button styles */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4);
+}
+
+.back-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.back-btn i {
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover i {
+    transform: translateX(-2px);
+}
+
+/* Enhanced project details layout */
+.new-content img {
+    transition: transform 0.3s ease;
+}
+
+.new-content img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive adjustments for project details */
 @media (max-width: 767px) {
-    body {
-        background-size: 50px 50px, 50px 50px, 50px 50px;
-    }
-    
     .falling-dot {
         width: 1px;
         height: 5px;
@@ -155,11 +227,99 @@ nav ul li a.active {
     #hover-image {
         display: none; /* Hide hover images on mobile */
     }
+    
+    .back-btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+    }
 }
 
-/* Ensure proper spacing on mobile */
+/* Removed old mobile spacing - now handled by individual section backgrounds */
+
+/* Floating geometric shapes animations */
+@keyframes float-1 {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.1;
+    }
+    90% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float-2 {
+    0% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.15;
+    }
+    50% {
+        transform: translateY(-50vh) rotate(180deg) scale(1.2);
+    }
+    90% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes float-3 {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.1;
+    }
+    85% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+.floating-shape {
+    pointer-events: none;
+}
+
+.floating-shape.triangle {
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+
+.floating-shape.triangle::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid;
+    border-bottom-color: inherit;
+}
+
+/* Responsive adjustments for floating shapes */
 @media (max-width: 767px) {
-    .scroll-container {
-        padding-top: 80px; /* Account for fixed header */
+    .floating-shape {
+        width: 15px !important;
+        height: 15px !important;
     }
 }
