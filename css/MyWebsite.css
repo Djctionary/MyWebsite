@@ -31,6 +31,11 @@ html {
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
+    overflow-y: hidden;
+}
+
+/* Enable scrolling for experience section */
+#experience {
     overflow-y: auto;
 }
 

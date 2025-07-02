@@ -150,6 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let isScrolling = false;
     const sections = document.querySelectorAll('.section');
     const totalPages = sections.length;
+    let experienceScrollPosition = 0; // Track scroll position within experience section
+    const experienceIndex = 2; // Experience section is at index 2 (0: cover, 1: skills, 2: experience)
 
     // 初始化页面位置 - 使用遮罩效果
     function initializePages() {
@@ -275,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateNavigation();
     }
 
-    // 鼠标滚轮事件处理
+    // 鼠标滚轮事件处理 - 包含Experience section特殊滚动逻辑
     document.addEventListener('wheel', function(e) {
         e.preventDefault();
         
@@ -283,12 +285,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const delta = e.deltaY || e.deltaX;
         
-        if (delta > 0) {
-            // 向下滚动 - 下一页
-            goToPage(currentPageIndex + 1, 'next');
-        } else if (delta < 0) {
-            // 向上滚动 - 上一页（从左往右显示）
-            goToPage(currentPageIndex - 1, 'prev');
+        // Special handling for Experience section
+        if (currentPageIndex === experienceIndex) {
+            const experienceSection = sections[experienceIndex];
+            const maxScrollHeight = experienceSection.scrollHeight - experienceSection.clientHeight;
+            
+            if (delta > 0) {
+                // Scrolling down in experience section
+                if (experienceScrollPosition < maxScrollHeight) {
+                    // Still content to scroll within experience section
+                    experienceScrollPosition = Math.min(experienceScrollPosition + 50, maxScrollHeight);
+                    experienceSection.scrollTop = experienceScrollPosition;
+                } else {
+                    // At bottom of experience section, move to next section
+                    experienceScrollPosition = 0; // Reset for next time
+                    goToPage(currentPageIndex + 1, 'next');
+                }
+            } else if (delta < 0) {
+                // Scrolling up in experience section
+                if (experienceScrollPosition > 0) {
+                    // Still content to scroll within experience section
+                    experienceScrollPosition = Math.max(experienceScrollPosition - 50, 0);
+                    experienceSection.scrollTop = experienceScrollPosition;
+                } else {
+                    // At top of experience section, move to previous section
+                    goToPage(currentPageIndex - 1, 'prev');
+                }
+            }
+        } else {
+            // Normal page navigation for other sections
+            if (delta > 0) {
+                // 向下滚动 - 下一页
+                if (currentPageIndex + 1 === experienceIndex) {
+                    // Moving to experience section, reset scroll position
+                    experienceScrollPosition = 0;
+                    sections[experienceIndex].scrollTop = 0;
+                }
+                goToPage(currentPageIndex + 1, 'next');
+            } else if (delta < 0) {
+                // 向上滚动 - 上一页（从左往右显示）
+                if (currentPageIndex - 1 === experienceIndex) {
+                    // Moving to experience section from below, start at bottom
+                    const experienceSection = sections[experienceIndex];
+                    const maxScrollHeight = experienceSection.scrollHeight - experienceSection.clientHeight;
+                    experienceScrollPosition = maxScrollHeight;
+                    experienceSection.scrollTop = experienceScrollPosition;
+                }
+                goToPage(currentPageIndex - 1, 'prev');
+            }
         }
     }, { passive: false });
 
@@ -316,11 +360,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // 只有水平滑动距离大于垂直滑动距离时才触发页面切换
         if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
             if (deltaX > 0) {
-                // 向左滑动 - 上一页
-                goToPage(currentPageIndex - 1, 'prev');
-            } else {
-                // 向右滑动 - 下一页（从左往右显示）
+                // 向左滑动 - 下一页
                 goToPage(currentPageIndex + 1, 'next');
+            } else {
+                // 向右滑动 - 上一页（从左往右显示）
+                goToPage(currentPageIndex - 1, 'prev');
             }
         }
     }, { passive: true });

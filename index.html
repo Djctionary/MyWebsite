@@ -51,7 +51,7 @@
             <div class="relative z-10">
                 <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-4">Jiacheng Dong</h1>
                 <p class="text-xl md:text-2xl lg:text-3xl text-white mb-8">Web Developer & Designer</p>
-                <img src="images/profile.jpg" alt="Your Name" class="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover border-4 border-white border-opacity-20">
+                <img src="images/Doctor.jpg" alt="Your Name" class="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover border-4 border-white border-opacity-20">
             </div>
             
             <div class="scroll-indicator absolute bottom-8 animate-bounce z-10">
@@ -66,63 +66,184 @@
             <canvas id="matrix-canvas" class="absolute inset-0 z-0"></canvas>
             
             <!-- Content -->
-            <div class="relative z-10 w-full max-w-4xl">
+            <div class="relative z-10 w-full max-w-6xl">
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center">Skills</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-opacity-20 transition-all duration-300 border border-green-400 border-opacity-30">
-                        <img src="images/html5.jpg" alt="HTML5" class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded">
-                        <p class="text-white font-semibold text-lg">HTML5</p>
+                
+                <!-- Technical Skills Categories -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Programming & Development -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-blue-400 border-opacity-30">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">Programming & Development</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="text-center bg-white bg-opacity-5 rounded p-2">
+                                <i class="fab fa-html5 text-orange-500 text-2xl mb-2"></i>
+                                <p class="text-white text-sm">HTML5</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="images/css3.jpg" alt="CSS3" class="w-12 h-12 mx-auto mb-2 rounded">
+                                <p class="text-white text-sm">CSS3</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="images/javascript.jpg" alt="JavaScript" class="w-12 h-12 mx-auto mb-2 rounded">
+                                <p class="text-white text-sm">JavaScript</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="images/react.jpg" alt="React" class="w-12 h-12 mx-auto mb-2 rounded">
+                                <p class="text-white text-sm">React</p>
+                            </div>
+                            <div class="text-center bg-white bg-opacity-5 rounded p-2">
+                                <i class="fab fa-python text-blue-400 text-2xl mb-2"></i>
+                                <p class="text-white text-sm">Python</p>
+                            </div>
+                            <div class="text-center bg-white bg-opacity-5 rounded p-2">
+                                <i class="fas fa-code text-green-400 text-2xl mb-2"></i>
+                                <p class="text-white text-sm">C++</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-opacity-20 transition-all duration-300 border border-blue-400 border-opacity-30">
-                        <img src="images/css3.jpg" alt="CSS3" class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded">
-                        <p class="text-white font-semibold text-lg">CSS3</p>
+
+                    <!-- AI & Machine Learning -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-purple-400 border-opacity-30">
+                        <h3 class="text-xl font-bold text-purple-400 mb-4">AI & Machine Learning</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-brain text-purple-400 mr-3"></i>
+                                <span class="text-white">Deep Learning</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-eye text-purple-400 mr-3"></i>
+                                <span class="text-white">Computer Vision</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-robot text-purple-400 mr-3"></i>
+                                <span class="text-white">Reinforcement Learning</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-line text-purple-400 mr-3"></i>
+                                <span class="text-white">TensorFlow</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-network-wired text-purple-400 mr-3"></i>
+                                <span class="text-white">Neural Networks</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-opacity-20 transition-all duration-300 border border-yellow-400 border-opacity-30">
-                        <img src="images/javascript.jpg" alt="JavaScript" class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded">
-                        <p class="text-white font-semibold text-lg">JavaScript</p>
+                </div>
+
+                <!-- Specialized Skills -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Robotics & Embedded Systems -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-orange-400 border-opacity-30">
+                        <h3 class="text-lg font-bold text-orange-400 mb-3">Robotics & Embedded</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-microchip text-orange-400 mr-2 text-sm"></i>
+                                <span class="text-white text-sm">NVIDIA Orin</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cogs text-orange-400 mr-2 text-sm"></i>
+                                <span class="text-white text-sm">Embedded Systems</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-robot text-orange-400 mr-2 text-sm"></i>
+                                <span class="text-white text-sm">Mecanum Robotics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Signal Processing -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-green-400 border-opacity-30">
+                        <h3 class="text-lg font-bold text-green-400 mb-3">Signal Processing</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-wave-square text-green-400 mr-2 text-sm"></i>
+                                <span class="text-white text-sm">EEG Analysis</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-area text-green-400 mr-2 text-sm"></i>
+                                <span class="text-white text-sm">MATLAB</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-heartbeat text-green-400 mr-2 text-sm"></i>
+                                <span class="text-white text-sm">Biomedical Signals</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="section flex-shrink-0 w-full md:w-screen h-screen flex flex-col justify-center items-center p-4 md:p-8 relative">
+        <section id="experience" class="section flex-shrink-0 w-full md:w-screen h-screen flex flex-col items-center relative overflow-hidden">
             <!-- Neural Network Background -->
             <canvas id="neural-canvas" class="absolute inset-0 z-0"></canvas>
             
             <!-- Content -->
-            <div class="w-full max-w-4xl relative z-10">
+            <div class="w-full max-w-4xl relative z-10 pt-28 pb-16 px-4 md:px-8">
                 <!-- Original Experience Content -->
                 <div id="experience-original" class="experience-content">
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center">Experience</h2>
+                    
+                    <!-- Current Research Position -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-blue-400 text-xl md:text-2xl font-semibold">Research Assistant</h3>
+                            <span class="text-gray-300 text-sm">Jan 2025 - Jun 2025</span>
+                        </div>
+                        <p class="text-white font-medium mb-2">University of Technology, Sydney</p>
+                        <p class="text-gray-300 italic mb-3 text-sm">Supervised by Associate Professor Angela Huo</p>
+                        <p class="text-gray-300 text-sm md:text-base">Deep & Reinforcement Learning Solution: Solved real-world industrial challenges</p>
+                    </div>
+
+                    <!-- Previous Research Position -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-blue-400 text-xl md:text-2xl font-semibold">Research Assistant</h3>
+                            <span class="text-gray-300 text-sm">Sep 2024 - Jan 2025</span>
+                        </div>
+                        <p class="text-white font-medium mb-2">University of Technology, Sydney</p>
+                        <p class="text-gray-300 italic mb-3 text-sm">Supervised by Senior Lecturer Y.K. Wang</p>
+                        <p class="text-gray-300 text-sm md:text-base">Real-Time Driver Drowsiness Detection: Deployed deep-learning models for drowsiness detection in driving research</p>
+                    </div>
+
+                    <!-- System Engineer Position -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-blue-400 text-xl md:text-2xl font-semibold">System Engineer</h3>
+                            <span class="text-gray-300 text-sm">Sep 2023 - Jun 2024</span>
+                        </div>
+                        <p class="text-white font-medium mb-4">RoboMaster Lab, Northeastern University</p>
+                        <div class="space-y-3">
+                            <div class="bg-white bg-opacity-5 rounded-lg p-3">
+                                <h4 class="text-white font-medium mb-2">YOLOv5 5-Point Detection System</h4>
+                                <p class="text-gray-300 text-sm">Deployed on NVIDIA Orin; boosted high-speed detection accuracy</p>
+                            </div>
+                            <div class="bg-white bg-opacity-5 rounded-lg p-3">
+                                <h4 class="text-white font-medium mb-2">Mecanum Robot Development</h4>
+                                <p class="text-gray-300 text-sm">Integrated embedded modules; enabled host–device communication</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HACI Lab Research Position -->
                     <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8">
-                        <h3 class="mb-4">
-                            <a href="https://cz26.github.io/CZ-HP/lab/" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors text-xl md:text-2xl lg:text-3xl font-semibold">
-                                Human-Centered Affective Computing and Interaction Laboratory
-                            </a>
-                        </h3>
-                        <p class="text-gray-300 italic mb-6 text-sm md:text-base">2022.9.1 - 2024.6.1</p>
-
-                        <div class="space-y-4">
-                            <div class="project-item bg-white bg-opacity-5 rounded-lg p-4 hover:bg-opacity-10 transition-all duration-300 cursor-pointer transform hover:translate-x-2" data-image="images/RES.jpg" data-content="new-content-1">
-                                <a href="#" class="text-gray-200 hover:text-blue-300 transition-colors">
-                                    <strong class="text-lg md:text-xl">Multimodal Real-Time Emotion Analysis System</strong>
-                                </a>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-blue-400 text-xl md:text-2xl font-semibold">Research Assistant</h3>
+                            <span class="text-gray-300 text-sm">Sep 2022 - Jun 2024</span>
+                        </div>
+                        <p class="text-white font-medium mb-2">HACI Lab, Northeastern University</p>
+                        <p class="text-gray-300 italic mb-4 text-sm">Human-Centered Affective Computing and Interaction Laboratory</p>
+                        <div class="space-y-3">
+                            <div class="bg-white bg-opacity-5 rounded-lg p-3 cursor-pointer hover:bg-opacity-10 transition-all duration-300 project-item" data-content="new-content-1">
+                                <h4 class="text-white font-medium mb-2">Multimodal Emotion Analysis System</h4>
+                                <p class="text-gray-300 text-sm">Fused EEG, image & audio for live emotion detection</p>
                             </div>
-
-                            <div class="divider h-0.5 bg-white bg-opacity-30 my-4"></div>
-
-                            <div class="project-item bg-white bg-opacity-5 rounded-lg p-4 hover:bg-opacity-10 transition-all duration-300 cursor-pointer transform hover:translate-x-2" data-image="images/TCMI.jpg" data-content="new-content-2">
-                                <a href="#" class="text-gray-200 hover:text-blue-300 transition-colors">
-                                    <strong class="text-lg md:text-xl">Traditional Chinese Medicine Information Website</strong>
-                                </a>
+                            <div class="bg-white bg-opacity-5 rounded-lg p-3 cursor-pointer hover:bg-opacity-10 transition-all duration-300 project-item" data-content="new-content-2">
+                                <h4 class="text-white font-medium mb-2">TCM Information Collection Platform</h4>
+                                <p class="text-gray-300 text-sm">Built web-based system to collect & manage Traditional Chinese Medicine data</p>
                             </div>
-
-                            <div class="divider h-0.5 bg-white bg-opacity-30 my-4"></div>
-
-                            <div class="project-item bg-white bg-opacity-5 rounded-lg p-4 hover:bg-opacity-10 transition-all duration-300 cursor-pointer transform hover:translate-x-2" data-image="images/EEG.jpg" data-content="new-content-3">
-                                <a href="#" class="text-gray-200 hover:text-blue-300 transition-colors">
-                                    <strong class="text-lg md:text-xl">EEG-Based Emotion Analysis System</strong>
-                                </a>
+                            <div class="bg-white bg-opacity-5 rounded-lg p-3 cursor-pointer hover:bg-opacity-10 transition-all duration-300 project-item" data-content="new-content-3">
+                                <h4 class="text-white font-medium mb-2">EEG-Based Emotion Analysis System</h4>
+                                <p class="text-gray-300 text-sm">Developed EEG-driven pipeline for emotion classification</p>
                             </div>
                         </div>
                     </div>
@@ -258,18 +379,47 @@
             
             <!-- Content -->
             <div class="w-full max-w-4xl relative z-10">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center">Education</h2>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white pt-16 mb-8 text-center">Education</h2>
                 <div class="space-y-6">
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 hover:bg-opacity-15 transition-all duration-300">
-                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Bachelor of Software Engineering</h3>
-                        <p class="text-blue-400 italic mb-3 text-sm md:text-base">University of Technology, Sydney, 2024.8.1 - 2024.9.2</p>
-                        <p class="text-gray-300 text-sm md:text-base">Relevant Courses: Software Engineering, Reinforcement Learning</p>
+                    <!-- Current Education -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 hover:bg-opacity-15 transition-all duration-300 border-l-4 border-blue-400">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl md:text-2xl font-bold text-white">Bachelor of Software Engineering with Honours</h3>
+                            <span class="text-green-400 text-sm font-medium">Current</span>
+                        </div>
+                        <p class="text-blue-400 italic mb-2 text-sm md:text-base">University of Technology, Sydney (UTS)</p>
+                        <p class="text-gray-300 text-sm mb-3">Aug 2024 - Present</p>
+                        <div class="flex items-center mb-3">
+                            <span class="text-white font-medium mr-2">GPA:</span>
+                            <span class="text-green-400 font-bold">89.5/100</span>
+                        </div>
+                        <div class="bg-white bg-opacity-5 rounded-lg p-3">
+                            <h4 class="text-blue-400 font-medium mb-2">Achievements & Recognition</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Dean's List – UTS (2025)</li>
+                                <li>• Specializing in embodied intelligence robotics and AI</li>
+                                <li>• Pursuing Fall 2026 PhD positions in autonomous embodied AI research</li>
+                            </ul>
+                        </div>
                     </div>
 
+                    <!-- Previous Education -->
                     <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 hover:bg-opacity-15 transition-all duration-300">
-                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Bachelor of Computer Science and Technology</h3>
-                        <p class="text-blue-400 italic mb-3 text-sm md:text-base">Northeastern University, China, 2022.9.1 - 2024.6.1</p>
-                        <p class="text-gray-300 text-sm md:text-base">Relevant Courses: Deep Learning, Programming Languages, Front-End and Back-End Development, Web Development</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Bachelor of Computer Science</h3>
+                        <p class="text-blue-400 italic mb-2 text-sm md:text-base">Northeastern University, China (NEU)</p>
+                        <p class="text-gray-300 text-sm mb-3">Sep 2022 - Jun 2024</p>
+                        <div class="flex items-center mb-3">
+                            <span class="text-white font-medium mr-2">GPA:</span>
+                            <span class="text-green-400 font-bold">88.1/100</span>
+                        </div>
+                        <div class="bg-white bg-opacity-5 rounded-lg p-3">
+                            <h4 class="text-blue-400 font-medium mb-2">Achievements & Recognition</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Full Third Prize Scholarship – NEU (2023–2024)</li>
+                                <li>• National Second Prize – 23rd National RoboMaster Super Combat (2024)</li>
+                                <li>• Focus on deep learning, computer vision, and robotics</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -291,7 +441,28 @@
                         <i class="fas fa-envelope text-blue-400 text-xl"></i>
                         <p class="text-white text-lg md:text-xl">
                             <strong>Email:</strong> 
-                            <a href="mailto:djctionary@gmail.com" class="text-blue-400 hover:text-blue-300 transition-colors ml-2">djctionary@gmail.com</a>
+                            <a href="mailto:jiacheng.dong@student.uts.edu.au" class="text-blue-400 hover:text-blue-300 transition-colors ml-2">jiacheng.dong@student.uts.edu.au</a>
+                        </p>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
+                        <i class="fas fa-globe text-blue-400 text-xl"></i>
+                        <p class="text-white text-lg md:text-xl">
+                            <strong>Website:</strong> 
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors ml-2">MyGithubWebsite</a>
+                        </p>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
+                        <i class="fab fa-github text-blue-400 text-xl"></i>
+                        <p class="text-white text-lg md:text-xl">
+                            <strong>GitHub:</strong> 
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors ml-2">MyGithub</a>
+                        </p>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
+                        <i class="fas fa-graduation-cap text-blue-400 text-xl"></i>
+                        <p class="text-white text-lg md:text-xl">
+                            <strong>Google Scholar:</strong> 
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors ml-2">MyGoogleScholar</a>
                         </p>
                     </div>
                 </div>
